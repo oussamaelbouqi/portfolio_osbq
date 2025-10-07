@@ -1,0 +1,444 @@
+/* ========================================
+   Inline Styles Extracted from HTML
+   ======================================== */
+
+/* Clean, minimal custom styles */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+/* Dark Mode Variables */
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #0f172a;
+  --bg-secondary-light: #f8fafc;
+  --bg-secondary-dark: #1e293b;
+  --text-light: #1f2937;
+  --text-dark: #f1f5f9;
+  --text-secondary-light: #6b7280;
+  --text-secondary-dark: #cbd5e1;
+  --border-light: #e5e7eb;
+  --border-dark: #334155;
+  --card-light: rgba(255, 255, 255, 0.8);
+  --card-dark: rgba(30, 41, 59, 0.8);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Background Gradients */
+.dark-mode .bg-gradient-to-br.from-indigo-50 { background: linear-gradient(to bottom right, #1e293b, #0f172a) !important; }
+.dark-mode .bg-gradient-to-br.from-blue-50 { background: linear-gradient(to bottom right, #1e293b, #0f172a) !important; }
+.dark-mode .bg-gradient-to-br.from-slate-50 { background: linear-gradient(to bottom right, #1e293b, #0f172a) !important; }
+.dark-mode .bg-gradient-to-br.from-white { background: linear-gradient(to bottom right, #1e293b, #0f172a) !important; }
+.dark-mode .bg-gradient-to-br.from-gray-50 { background: linear-gradient(to bottom right, #1e293b, #0f172a) !important; }
+
+/* Cards and Containers */
+.dark-mode .bg-white\/80,
+.dark-mode .bg-white\/70 {
+  background-color: var(--card-dark) !important;
+  border-color: var(--border-dark) !important;
+}
+
+/* Text Colors */
+.dark-mode .text-gray-900,
+.dark-mode .text-gray-800,
+.dark-mode .text-gray-700 {
+  color: var(--text-dark) !important;
+}
+
+.dark-mode .text-gray-600,
+.dark-mode .text-gray-500 {
+  color: var(--text-secondary-dark) !important;
+}
+
+/* Borders */
+.dark-mode .border-gray-200,
+.dark-mode .border-gray-300,
+.dark-mode .border-white\/20 {
+  border-color: var(--border-dark) !important;
+}
+
+/* Form Elements */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border-color: var(--border-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: var(--text-secondary-dark) !important;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Navigation */
+.dark-mode nav {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.dark-mode .nav-link {
+  color: var(--text-dark) !important;
+}
+
+.dark-mode .nav-link:hover {
+  color: #60a5fa !important;
+}
+
+/* Buttons */
+.dark-mode .filter-btn:not(.active) {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--border-dark) !important;
+}
+
+.dark-mode .filter-btn:not(.active):hover {
+  background-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+/* Project Cards */
+.dark-mode .project-item {
+  background-color: var(--card-dark) !important;
+  border-color: var(--border-dark) !important;
+}
+
+.dark-mode .project-item:hover {
+  background-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+/* Skills Cards */
+.dark-mode .bg-gradient-to-br.from-blue-50.to-blue-100,
+.dark-mode .bg-gradient-to-br.from-purple-50.to-purple-100,
+.dark-mode .bg-gradient-to-br.from-green-50.to-green-100,
+.dark-mode .bg-gradient-to-br.from-yellow-50.to-yellow-100,
+.dark-mode .bg-gradient-to-br.from-orange-50.to-orange-100,
+.dark-mode .bg-gradient-to-br.from-indigo-50.to-indigo-100,
+.dark-mode .bg-gradient-to-br.from-cyan-50.to-cyan-100,
+.dark-mode .bg-gradient-to-br.from-pink-50.to-pink-100,
+.dark-mode .bg-gradient-to-br.from-gray-50.to-gray-100 {
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark-mode .bg-gradient-to-br.from-blue-50.to-blue-100:hover,
+.dark-mode .bg-gradient-to-br.from-purple-50.to-purple-100:hover,
+.dark-mode .bg-gradient-to-br.from-green-50.to-green-100:hover,
+.dark-mode .bg-gradient-to-br.from-yellow-50.to-yellow-100:hover,
+.dark-mode .bg-gradient-to-br.from-orange-50.to-orange-100:hover,
+.dark-mode .bg-gradient-to-br.from-indigo-50.to-indigo-100:hover,
+.dark-mode .bg-gradient-to-br.from-cyan-50.to-cyan-100:hover,
+.dark-mode .bg-gradient-to-br.from-pink-50.to-pink-100:hover,
+.dark-mode .bg-gradient-to-br.from-gray-50.to-gray-100:hover {
+  background: rgba(51, 65, 85, 0.8) !important;
+}
+
+/* Fix specific skill cards that might not be covered */
+.dark-mode .group.bg-gradient-to-br {
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark-mode .group.bg-gradient-to-br:hover {
+  background: rgba(51, 65, 85, 0.8) !important;
+}
+
+/* Service Cards */
+.dark-mode .bg-gradient-to-r.from-indigo-50.to-purple-50,
+.dark-mode .bg-gradient-to-r.from-blue-50.to-indigo-50,
+.dark-mode .bg-gradient-to-r.from-green-50.to-blue-50,
+.dark-mode .bg-gradient-to-r.from-purple-50.to-pink-50,
+.dark-mode .bg-gradient-to-r.from-orange-50.to-red-50 {
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark-mode .bg-gradient-to-r.from-indigo-50.to-purple-50:hover,
+.dark-mode .bg-gradient-to-r.from-blue-50.to-indigo-50:hover,
+.dark-mode .bg-gradient-to-r.from-green-50.to-blue-50:hover,
+.dark-mode .bg-gradient-to-r.from-purple-50.to-pink-50:hover,
+.dark-mode .bg-gradient-to-r.from-orange-50.to-red-50:hover {
+  background: rgba(51, 65, 85, 0.8) !important;
+}
+
+/* RTL (Arabic) specific styles */
+[dir="rtl"] .flex.items-center.gap-2 svg,
+[dir="rtl"] .flex.items-center.space-x-2 svg,
+[dir="rtl"] .flex.items-center svg {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .space-x-1 > * + * {
+  margin-left: 0.25rem !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .space-x-2 > * + * {
+  margin-left: 0.5rem !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .space-x-3 > * + * {
+  margin-left: 0.75rem !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .space-x-4 > * + * {
+  margin-left: 1rem !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .space-x-8 > * + * {
+  margin-left: 2rem !important;
+  margin-right: 0 !important;
+}
+
+/* Fix button icons in RTL */
+[dir="rtl"] .group\/btn svg {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+}
+
+/* Fix navigation spacing in RTL */
+[dir="rtl"] .hidden.md\\:flex.items-center.space-x-8 a {
+  margin-left: 2rem !important;
+  margin-right: 0 !important;
+}
+
+/* Fix hero section icons in RTL */
+[dir="rtl"] .flex.items-center.justify-center.gap-2 svg {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+}
+
+/* Smooth Transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Body Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode Body */
+body.dark-mode {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Navigation Dark Mode */
+body.dark-mode nav,
+body.dark-mode .bg-white {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+/* Sections Dark Mode */
+body.dark-mode .bg-gray-50,
+body.dark-mode .bg-gradient-to-br.from-slate-50,
+body.dark-mode .bg-gradient-to-br.from-indigo-50,
+body.dark-mode .bg-gradient-to-br.from-white,
+body.dark-mode .bg-gradient-to-br.from-blue-50,
+body.dark-mode .bg-gradient-to-br.from-gray-50 {
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+}
+
+/* Cards and containers Dark Mode */
+body.dark-mode .bg-white\/80 {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Text colors Dark Mode */
+body.dark-mode .text-gray-900 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .text-gray-800 {
+  color: #e2e8f0;
+}
+
+body.dark-mode .text-gray-700 {
+  color: #cbd5e1;
+}
+
+body.dark-mode .text-gray-600 {
+  color: #94a3b8;
+}
+
+body.dark-mode .text-gray-500 {
+  color: #64748b;
+}
+
+/* Borders Dark Mode */
+body.dark-mode .border,
+body.dark-mode .border-gray-200,
+body.dark-mode .border-t {
+  border-color: #334155;
+}
+
+/* Form elements Dark Mode */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+/* Hover states Dark Mode */
+body.dark-mode .hover\:bg-gray-100:hover {
+  background-color: #334155;
+}
+
+/* Skill cards Dark Mode */
+body.dark-mode .bg-gradient-to-br.from-blue-50,
+body.dark-mode .bg-gradient-to-br.from-purple-50,
+body.dark-mode .bg-gradient-to-br.from-green-50,
+body.dark-mode .bg-gradient-to-br.from-orange-50,
+body.dark-mode .bg-gradient-to-br.from-indigo-50 {
+  background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.8));
+}
+
+/* Project cards Dark Mode */
+body.dark-mode .project-item {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Footer Dark Mode */
+body.dark-mode footer {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+/* Box shadows Dark Mode */
+body.dark-mode .shadow-sm,
+body.dark-mode .shadow-lg,
+body.dark-mode .shadow-xl,
+body.dark-mode .shadow-2xl {
+  --tw-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Gradients Dark Mode */
+body.dark-mode .bg-gradient-to-r.from-gray-900 {
+  background-image: linear-gradient(to right, #f1f5f9, #e2e8f0);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Glass effect backgrounds Dark Mode */
+body.dark-mode .backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Mobile menu Dark Mode */
+body.dark-mode #mobile-menu {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+/* Filter buttons Dark Mode */
+body.dark-mode .filter-btn:not(.active) {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+/* Utility Classes */
+.section-padding { 
+  padding: 5rem 0; 
+}
+
+@media (max-width: 768px) {
+  .section-padding { 
+    padding: 3rem 0; 
+  }
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0,0,0,0.15);
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Smooth scroll */
+html { 
+  scroll-behavior: smooth; 
+}
+
+/* Language and Interest Cards */
+.bg-gradient-to-r.from-purple-50.to-pink-50,
+.bg-gradient-to-r.from-blue-50.to-cyan-50,
+.bg-gradient-to-r.from-green-50.to-emerald-50,
+.bg-gradient-to-r.from-orange-50.to-yellow-50,
+.bg-gradient-to-r.from-indigo-50.to-purple-50 {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .bg-gradient-to-r.from-purple-50.to-pink-50,
+body.dark-mode .bg-gradient-to-r.from-blue-50.to-cyan-50,
+body.dark-mode .bg-gradient-to-r.from-green-50.to-emerald-50,
+body.dark-mode .bg-gradient-to-r.from-orange-50.to-yellow-50,
+body.dark-mode .bg-gradient-to-r.from-indigo-50.to-purple-50 {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+/* Specific fixes for English and Crystal Reports */
+.dark-mode .bg-gradient-to-r.from-yellow-50.to-orange-50 {
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark-mode .bg-gradient-to-r.from-yellow-50.to-orange-50:hover {
+  background: rgba(51, 65, 85, 0.8) !important;
+}
+
+.dark-mode .bg-gradient-to-r.from-yellow-50.to-orange-50 span {
+  color: var(--text-dark) !important;
+}
+
+.dark-mode .bg-gradient-to-r.from-green-50.to-emerald-50,
+.dark-mode .bg-gradient-to-r.from-blue-50.to-sky-50 {
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark-mode .bg-gradient-to-r.from-green-50.to-emerald-50:hover,
+.dark-mode .bg-gradient-to-r.from-blue-50.to-sky-50:hover {
+  background: rgba(51, 65, 85, 0.8) !important;
+}
+
+.dark-mode .bg-gradient-to-r.from-green-50.to-emerald-50 span,
+.dark-mode .bg-gradient-to-r.from-blue-50.to-sky-50 span {
+  color: var(--text-dark) !important;
+}
