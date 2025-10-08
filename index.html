@@ -1,4 +1,5 @@
 <!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +9,15 @@
   <meta name="author" content="Oussama Elbouqi" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://oussamaelbouqi.com" />
+  
+  <!-- Performance optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Resource hints for faster loading -->
+  <link rel="prefetch" href="assets/css/inline-styles.css">
+  <link rel="prefetch" href="assets/js/theme-language.js">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -27,6 +37,13 @@
   <link rel="icon" href="assets/images/avatar.png" />
   <link rel="apple-touch-icon" href="assets/images/avatar.png" />
   
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#2563eb" />
@@ -36,18 +53,36 @@
   
   <!-- Structured Data -->
   <script type="application/ld+json">
-    
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Oussama Elbouqi",
+    "url": "https://oussamaelbouqi.com",
+    "image": "https://oussamaelbouqi.com/assets/images/avatar.png",
+    "jobTitle": "Développeur Informatique",
+    "description": "Software developer specializing in C#, ASP.NET, and web development",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tiflet",
+      "addressCountry": "MA"
+    },
+    "sameAs": [
+      "https://github.com/oussamaelbouqi",
+      "https://www.linkedin.com/in/oussama-elbouqi-4b578120a/",
+      "https://www.instagram.com/oussamaelbouqi/",
+      "https://www.facebook.com/elboukioussama36/"
+    ],
+    "email": "elbouqi.oussama@gmail.com"
+  }
   </script>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/custom.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/inline-styles.css">
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/enhancements.js"></script>
   <script src="assets/js/theme-language.js"></script>
-  <script src="assets/js/improvements.js"></script>
-  <script src="assets/js/inline-scripts.js"></script>
+  <script src="assets/js/additional-translations.js"></script>
+  <script src="assets/js/fixed-main.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -61,13 +96,20 @@
     }
   </script>
   <!-- Styles moved to assets/css/inline-styles.css -->
-
-
-   
-  </style>
 </head>
 
 <body class="bg-gray-50">
+  
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div class="text-center">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+      <p class="text-gray-600 font-medium">Loading Portfolio...</p>
+    </div>
+  </div>
+  
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50 transition-all duration-300"></div>
   
   <!-- Navigation -->
   <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
@@ -103,7 +145,7 @@
             </svg>
           </button>
           
-          <button id="mobile-menu-btn" class="md:hidden p-2">
+          <button id="mobile-menu-btn" class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -137,7 +179,7 @@
       <div class="text-center py-12 md:py-20">
         <div class="mb-8 relative">
           <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
-          <img src="assets/images/avatar.png" alt="Oussama Elbouqi" class="w-40 h-40 mx-auto rounded-full shadow-2xl border-4 border-white relative z-10 hover:scale-105 transition-transform duration-300" loading="eager" />
+          <img src="assets/images/avatar.png" alt="Oussama Elbouqi" class="w-40 h-40 mx-auto rounded-full shadow-2xl border-4 border-white relative z-10 hover:scale-105 transition-transform duration-300" loading="eager" decoding="async" />
         </div>
         <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6 animate-fade-in" data-i18n="hero.greeting">
           Hi, I'm Oussama Elbouqi
@@ -162,21 +204,29 @@
               </svg>
             </span>
           </a>
+          <a href="assets/images/oussama elbouqi(cv).pdf" download class="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 font-semibold text-lg" data-i18n="hero.cta3">
+            <span class="flex items-center justify-center gap-2">
+              Download CV
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </span>
+          </a>
         </div>
         <div class="flex justify-center gap-4">
-          <a href="https://github.com/oussamaelbouqi" target="_blank" class="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
+          <a href="https://github.com/oussamaelbouqi" target="_blank" class="group p-4 bg-white/80  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
             <svg class="w-7 h-7 text-gray-700 group-hover:text-gray-900 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/oussama-elbouqi-4b578120a/" target="_blank" class="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
+          <a href="https://www.linkedin.com/in/oussama-elbouqi-4b578120a/" target="_blank" class="group p-4 bg-white/80  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
             <svg class="w-7 h-7 text-blue-600 group-hover:text-blue-700 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
-          <a href="mailto:elbouqi.oussama@gmail.com" class="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
+          <a href="mailto:elbouqi.oussama@gmail.com" class="group p-4 bg-white/80  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
             <svg class="w-7 h-7 text-red-500 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </a>
-          <a href="https://www.instagram.com/oussamaelbouqi/" target="_blank" class="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
+          <a href="https://www.instagram.com/oussamaelbouqi/" target="_blank" class="group p-4 bg-white/80  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
             <svg class="w-7 h-7 text-pink-500 group-hover:text-pink-600 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="https://www.facebook.com/elboukioussama36/" target="_blank" class="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
+          <a href="https://www.facebook.com/elboukioussama36/" target="_blank" class="group p-4 bg-white/80  rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/50">
             <svg class="w-7 h-7 text-blue-500 group-hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
 
@@ -201,7 +251,7 @@
       </div>
       
       <div class="max-w-4xl mx-auto">
-        <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-white/20 mb-12">
+        <div class="bg-white/70  rounded-3xl p-8 md:p-12 shadow-xl border border-white/20 mb-12">
           <p class="text-xl text-gray-700 mb-8 leading-relaxed font-medium" data-i18n="about.p1">
             I'm a software developer passionate about creating practical, user-friendly applications. With expertise in C#, ASP.NET, and modern web technologies, I build solutions that solve real problems.
           </p>
@@ -211,7 +261,7 @@
         </div>
         
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+          <div class="bg-white/70  rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
             <div class="flex items-center mb-6">
               <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,7 +306,7 @@
             </div>
           </div>
           
-          <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+          <div class="bg-white/70  rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
             <div class="flex items-center mb-6">
               <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,7 +322,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                   </svg>
                 </div>
-                <span class="font-semibold text-gray-800" data-i18n="about.int1">Web Development</span>
+                <span class="font-semibold text-gray-800" data-i18n="about.int1">Web & Software Development</span>
               </div>
               <div class="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl hover:from-green-100 hover:to-emerald-100 transition-colors">
                 <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3">
@@ -281,7 +331,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
                 </div>
-                <span class="font-semibold text-gray-800" data-i18n="about.int2">Photography & Video</span>
+                <span class="font-semibold text-gray-800" data-i18n="about.int2">Video Editing & Photography</span>
               </div>
               <div class="flex items-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl hover:from-purple-100 hover:to-pink-100 transition-colors">
                 <div class="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
@@ -289,15 +339,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
                   </svg>
                 </div>
-                <span class="font-semibold text-gray-800" data-i18n="about.int3">UI/UX Design</span>
+                <span class="font-semibold text-gray-800" data-i18n="about.int3">Visual Identity & Design</span>
               </div>
               <div class="flex items-center p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:from-orange-100 hover:to-red-100 transition-colors">
                 <div class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
                   <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                   </svg>
                 </div>
-                <span class="font-semibold text-gray-800" data-i18n="about.int4">Problem Solving</span>
+                <span class="font-semibold text-gray-800" data-i18n="about.int4">Social Projects & NGO Engagement</span>
               </div>
             </div>
           </div>
@@ -324,7 +374,7 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Service Card 1 -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
           <!-- Card gradient overlay -->
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
@@ -347,7 +397,7 @@
         </div>
 
         <!-- Service Card 2 -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
           <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -367,7 +417,7 @@
         </div>
 
         <!-- Service Card 3 -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
           <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -387,7 +437,7 @@
         </div>
 
         <!-- Service Card 4 -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
           <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -410,7 +460,7 @@
         </div>
 
         <!-- Service Card 5 -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 card-hover text-center relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
           <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -449,7 +499,7 @@
       <div class="max-w-4xl mx-auto space-y-8">
         
         <!-- Experience Item -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -473,25 +523,35 @@
                 <span class="text-sm font-medium" data-i18n="exp.techboy.location">Tiflet, Morocco</span>
               </div>
             </div>
-            <div class="space-y-3">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.techboy.desc1">End-of-studies project covering full development lifecycle</p>
+            <p class="text-gray-700 leading-relaxed mb-6" data-i18n="exp.techboy.desc">As part of my final project for obtaining the Specialized Technician Diploma (DTS) in Computer Development, I worked in a group with a colleague to develop an e-commerce website called Tech Boy. We designed and developed this A to Z site using the following technologies: ASP.NET, CSS, HTML, JavaScript, SQL Server, and UML.</p>
+            
+            <!-- TECHBOY Project Links -->
+            <div class="group/project bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-6 border border-blue-100 hover:border-blue-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4 group-hover/project:scale-110 transition-transform duration-300">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 text-xl" data-i18n="projects.techboy.title">Tech Boy E-Commerce</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="projects.techboy.desc">Full-stack e-commerce platform</p>
+                </div>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.techboy.desc2">Built e-commerce web application using ASP.NET, C#, JavaScript, SQL Server</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.techboy.desc3">Delivered complete solution with documentation and live demo</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="assets/images/TECBOY PC.pdf" target="_blank" class="group/btn flex-1 min-w-[120px] inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                  <span data-i18n="projects.live" >Live Demo</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Experience Item -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -514,25 +574,193 @@
                 <span class="text-sm font-medium" data-i18n="exp.especig.period">May 2024 – Jul 2024</span>
               </div>
             </div>
-            <div class="space-y-3">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.especig.desc1">Developed desktop application for private school management</p>
+            <div class="flex items-center text-gray-500 mb-4">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-sm font-medium" data-i18n="exp.especig.location">Tiflet</span>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6" data-i18n="exp.especig.desc">In 2024, I completed a 2-month internship at Especig school, where, with a group of colleagues, we created a desktop application for complete management of a private school, using MERISE, C#, SQL Server.</p>
+            
+            <!-- ESPECIG Project Links -->
+            <div class="group/project bg-gradient-to-br from-green-50 via-emerald-50 to-blue-50 rounded-2xl p-6 border border-green-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4 group-hover/project:scale-110 transition-transform duration-300">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 text-xl" data-i18n="projects.especig.title">ESPECIG</h4>
+                  <p class="text-gray-600 text-sm" data-i18n="projects.especig.desc">School management system with comprehensive features</p>
+                </div>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.especig.desc2">Designed database using MERISE methodology</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.especig.desc3">Technologies: C#, SQL Server, Crystal Reports</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="assets/images/RAPPORT DE STAGE(ESPEGIC).pdf" target="_blank" class="group/btn flex-1 min-w-[120px] inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white text-sm font-semibold rounded-xl hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                  <span data-i18n="projects.live">Live Demo</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Experience Item -->
-        <div class="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+        <!-- Experience Item - Web Design -->
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative z-10">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300" data-i18n="exp.webdev.title">Web Design and Front-End Development</h3>
+                  <p class="text-lg font-semibold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent" data-i18n="exp.webdev.role">Personal Projects</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6" data-i18n="exp.webdev.desc">A collection of modern web applications showcasing diverse design approaches and interactive user experiences. Each project demonstrates different aspects of front-end development, from responsive design to dynamic animations and user interface innovation.</p>
+            
+            <!-- Project Links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <!-- Personal Portfolio -->
+              <div class="group/card bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-6 border border-blue-100 hover:border-blue-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-3 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                  </div>
+                  <h4 class="font-bold text-gray-800 text-lg" data-i18n="projects.personal.title">Personal Portfolio</h4>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" data-i18n="projects.personal.desc">Professional portfolio showcasing development skills and creative projects</p>
+                <div class="flex gap-3">
+                  <a href="https://oussamaelbouqi.github.io/portfolio/index.html" target="_blank" class="group/btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-medium rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span data-i18n="projects.live">Live Demo</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Dashboard Interface -->
+              <div class="group/card bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-2xl p-6 border border-green-100 hover:border-green-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mr-3 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                  <h4 class="font-bold text-gray-800 text-lg" data-i18n="projects.dashboard.title">Dashboard Interface</h4>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" data-i18n="projects.dashboard.desc">Modern admin dashboard with real-time analytics and data visualization</p>
+                <div class="flex gap-3">
+                  <a href="https://oussamaelbouqi.github.io/Responsive-dashboard/" target="_blank" class="group/btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-medium rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span data-i18n="projects.live">Live Demo</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- iPhone 13 Dynamic Page -->
+              <div class="group/card bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 rounded-2xl p-6 border border-purple-100 hover:border-purple-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-3 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <h4 class="font-bold text-gray-800 text-lg" data-i18n="projects.iphone.title">iPhone 13 Dynamic</h4>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" data-i18n="projects.iphone.desc">Product showcase page with interactive color customization and smooth animations</p>
+                <div class="flex gap-3">
+                  <a href="https://oussamaelbouqi.github.io/landing-page/" target="_blank" class="group/btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span data-i18n="projects.live">Live Demo</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Adidas Showcase -->
+              <div class="group/card bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 rounded-2xl p-6 border border-orange-100 hover:border-orange-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mr-3 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                  </div>
+                  <h4 class="font-bold text-gray-800 text-lg" data-i18n="projects.adidas.title">Adidas Showcase</h4>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" data-i18n="projects.adidas.desc">Sports brand showcase with glassmorphism design and dynamic product displays</p>
+                <div class="flex gap-3">
+                  <a href="https://oussamaelbouqi.github.io/Responsive-Glass-Website/" target="_blank" class="group/btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-orange-600 to-red-600 text-white text-sm font-medium rounded-xl hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span data-i18n="projects.live">Live Demo</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Avatar Immersive Page -->
+              <div class="group/card bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 rounded-2xl p-6 border border-teal-100 hover:border-teal-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mr-3 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <h4 class="font-bold text-gray-800 text-lg" data-i18n="projects.avatar.title">Avatar Immersive</h4>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" data-i18n="projects.avatar.desc">Immersive movie-themed landing page with parallax scrolling and cinematic animations</p>
+                <div class="flex gap-3">
+                  <a href="https://oussamaelbouqi.github.io/Avatar-Landing-Page/" target="_blank" class="group/btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-medium rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span data-i18n="projects.live">Live Demo</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Pizza Mama -->
+              <div class="group/card bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 rounded-2xl p-6 border border-yellow-100 hover:border-yellow-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mr-3 group-hover/card:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                    </svg>
+                  </div>
+                  <h4 class="font-bold text-gray-800 text-lg" data-i18n="projects.pizza.title">Pizza Mama</h4>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" data-i18n="projects.pizza.desc">Italian restaurant website with online ordering system and interactive menu</p>
+                <div class="flex gap-3">
+                  <a href="https://oussamaelbouqi.github.io/pizza-mama/" target="_blank" class="group/btn flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-yellow-600 to-orange-600 text-white text-sm font-medium rounded-xl hover:from-yellow-700 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span data-i18n="projects.live">Live Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item - Fondation Nibras -->
+        <div class="group bg-white/80  border border-gray-200/50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="relative z-10">
@@ -544,8 +772,8 @@
                 </svg>
                 </div>
                 <div>
-                  <h3 class="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300" data-i18n="exp.nibras.title">Fondation Nibras</h3>
-                  <p class="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" data-i18n="exp.nibras.role">Internship</p>
+                  <h3 class="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300" data-i18n="exp.nibras.title">Fondation Nibras pour le développement</h3>
+                  <p class="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" data-i18n="exp.nibras.role">Archive Intern</p>
                 </div>
               </div>
               <div class="mt-4 md:mt-0 flex items-center text-gray-500">
@@ -554,21 +782,15 @@
                 </svg>
                 <span class="text-sm font-medium" data-i18n="exp.nibras.period">May 2023 – Jun 2023</span>
               </div>
-            </div>
-            <div class="space-y-3">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.nibras.desc1">Managed archiving and information organization</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.nibras.desc2">Improved data accessibility and documentation</p>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p class="text-gray-700 leading-relaxed" data-i18n="exp.nibras.desc3">Developed organizational and communication skills</p>
+              <div class="mt-2 md:mt-0 flex items-center text-gray-500">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="text-sm font-medium" data-i18n="exp.nibras.location">Tiflet</span>
               </div>
             </div>
+            <p class="text-gray-700 leading-relaxed" data-i18n="exp.nibras.desc">In 2023, I completed a one-month internship at Fondation Nibras for development, where I applied my knowledge in archiving and information organization, and developed my skills in office tools.</p>
           </div>
         </div>
 
@@ -578,67 +800,143 @@
 
   <!-- Projects Section -->
   <section id="projects" class="section-padding bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
-    <!-- Background decoration -->
+    <!-- Enhanced Background decoration -->
     <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full blur-3xl"></div>
+      <div class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-300 to-blue-400 rounded-full blur-3xl opacity-20"></div>
+    </div>
+    
+    <!-- Enhanced Floating particles -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-bounce opacity-60 shadow-lg"></div>
+      <div class="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-40"></div>
+      <div class="absolute top-1/2 right-1/3 w-3 h-3 bg-pink-400 rounded-full animate-pulse opacity-50 shadow-md"></div>
+      <div class="absolute top-1/3 right-1/2 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce opacity-50" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-indigo-400 rounded-full animate-pulse opacity-40" style="animation-delay: 2s;"></div>
+      <div class="absolute top-2/3 left-2/3 w-1 h-1 bg-rose-400 rounded-full animate-ping opacity-60" style="animation-delay: 0.5s;"></div>
+    </div>
+    
+    <!-- Geometric shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+      <div class="absolute top-20 right-20 w-16 h-16 border-2 border-blue-300 rotate-45 animate-spin" style="animation-duration: 20s;"></div>
+      <div class="absolute bottom-20 left-20 w-12 h-12 border-2 border-purple-300 rounded-full animate-pulse"></div>
+      <div class="absolute top-1/2 left-10 w-8 h-8 bg-gradient-to-r from-pink-300 to-rose-300 transform rotate-45 animate-bounce" style="animation-delay: 1.5s;"></div>
     </div>
     
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-4" data-i18n="projects.title">Projects</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8" data-i18n="projects.subtitle">Explore my diverse portfolio of web applications, desktop software, and creative projects</p>
+        <div class="inline-flex items-center gap-6 mb-8">
+          <div class="group w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-110 hover:rotate-12">
+            <svg class="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <div class="relative">
+            <h2 class="text-5xl md:text-7xl font-black bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 transition-all duration-700 cursor-default" data-i18n="projects.title">Projects</h2>
+            <div class="absolute -inset-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+          </div>
+          <div class="group w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl flex items-center justify-center shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 hover:scale-110 hover:-rotate-12">
+            <svg class="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-3 mb-10">
+          <div class="w-12 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse shadow-lg"></div>
+          <div class="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full animate-spin shadow-lg" style="animation-duration: 3s;"></div>
+          <div class="w-20 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse shadow-lg" style="animation-delay: 0.5s;"></div>
+          <div class="w-4 h-4 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full animate-bounce shadow-lg"></div>
+          <div class="w-12 h-1.5 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full animate-pulse shadow-lg" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="relative max-w-5xl mx-auto mb-16">
+          <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-2xl"></div>
+          <p class="relative text-xl md:text-2xl text-gray-700 leading-relaxed font-medium text-center bg-white/50  rounded-2xl p-8 shadow-xl border border-white/20" data-i18n="projects.subtitle">
+            Discover my comprehensive portfolio featuring cutting-edge web applications, robust desktop solutions, creative multimedia projects, and impactful social initiatives. Each project reflects my passion for innovation, technical excellence, and meaningful digital experiences.
+          </p>
+        </div>
         
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <button class="filter-btn active px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-filter="all" data-i18n="projects.filter.all">
-            All Projects
+          <button class="filter-btn active group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105" data-filter="all" data-i18n="projects.filter.all">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              <span data-i18n="projects.filter.all">All Projects</span>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </button>
-          <button class="filter-btn px-6 py-3 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200" data-filter="web" data-i18n="projects.filter.web">
-            Web Development
+          <button class="filter-btn group relative overflow-hidden px-8 py-4 bg-white/90  text-gray-700 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-2 border-gray-200 hover:border-blue-400" data-filter="web" data-i18n="projects.filter.web">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+              <span data-i18n="projects.filter.web">Web Development</span>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
           </button>
-          <button class="filter-btn px-6 py-3 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200" data-filter="desktop" data-i18n="projects.filter.desktop">
-            Desktop Apps
+          <button class="filter-btn group relative overflow-hidden px-8 py-4 bg-white/90  text-gray-700 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-2 border-gray-200 hover:border-indigo-400" data-filter="desktop" data-i18n="projects.filter.desktop">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span data-i18n="projects.filter.desktop">Desktop Apps</span>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
           </button>
-          <button class="filter-btn px-6 py-3 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200" data-filter="design" data-i18n="projects.filter.design">
-            Design & Media
+          <button class="filter-btn group relative overflow-hidden px-8 py-4 bg-white/90  text-gray-700 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-2 border-gray-200 hover:border-pink-400" data-filter="design" data-i18n="projects.filter.design">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1h2a1 1 0 011 1v18a1 1 0 01-1 1H5a1 1 0 01-1-1V2a1 1 0 011-1h2v3"/>
+              </svg>
+              <span data-i18n="projects.filter.design">Design & Media</span>              <img src="assets/images/adidas-glass.jpg" alt="Adidas Glass Website" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+          </button>
+          <button class="filter-btn group relative overflow-hidden px-8 py-4 bg-white/90  text-gray-700 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-2 border-gray-200 hover:border-emerald-400" data-filter="photography" data-i18n="projects.filter.photography">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span data-i18n="projects.filter.photography">Photography</span>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
           </button>
         </div>
+
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative" id="projects-container">
         
         <!-- Web Development Projects -->
-        <div class="project-item web group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+        <!-- Tech Boy E-Commerce -->
+        <div class="project-item web group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="absolute top-4 right-4 z-20">
-            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">Web</span>
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.web">Web</span>
           </div>
           <div class="relative z-10">
             <div class="relative overflow-hidden">
-              <img src="assets/images/project-dashboard.svg" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img src="assets/images/project_tecboy1.jpg" alt="Tech Boy E-Commerce" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300" data-i18n="projects.ecommerce.title">E-Commerce Platform</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.ecommerce.desc">Full-stack e-commerce solution with admin dashboard, payment integration, and inventory management.</p>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300" data-i18n="projects.techboy.title">Tech Boy E-Commerce</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="exp.techboy.desc">As part of my final project for obtaining the Specialized Technician Diploma (DTS) in Computer Development, I worked in a group with a colleague to develop an e-commerce website called Tech Boy. We designed and developed this A to Z site using the following technologies: ASP.NET, CSS, HTML, JavaScript, SQL Server, and UML.</p>
               <div class="flex flex-wrap gap-2 mb-6">
                 <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">ASP.NET</span>
                 <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">C#</span>
                 <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-medium rounded-full shadow-sm">SQL Server</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-full shadow-sm">UML</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  Live Demo
+                <a href="assets/images/TECBOY PC.pdf" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live" >Live Demo</span>
                   <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                  </svg>
-                </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
-                  Code
-                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                   </svg>
                 </a>
               </div>
@@ -646,25 +944,119 @@
           </div>
         </div>
 
-        <div class="project-item web group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+        <!-- Landing Page Dashboard -->
+        <div class="project-item web group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
           <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="absolute top-4 right-4 z-20">
-            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">Web</span>
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.web">Web</span>
           </div>
           <div class="relative z-10">
             <div class="relative overflow-hidden">
-              <img src="assets/images/project-portfolio.svg" alt="Portfolio Website" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="assets/images/Landing Page Dashboard.png" alt="Landing Page Dashboard" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-green-600 transition-colors duration-300" data-i18n="projects.dashboard.title">Dashboard Interface</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.dashboard.desc">Modern admin dashboard with real-time analytics and data visualization</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">HTML</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">CSS</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-sm font-medium rounded-full shadow-sm">JavaScript</span>
+              </div>
               <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  Live Demo
+                <a href="https://oussamaelbouqi.github.io/Responsive-dashboard/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live">Live Demo</span>
                   <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                   </svg>
                 </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-purple-600 hover:text-purple-600 transition-all duration-300 font-medium">
-                  Code
-                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone 13 Dynamic Page -->
+        <div class="project-item web group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.web">Web</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/Landing Page avec changement de couleur.png" alt="iPhone 13 Dynamic Page" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors duration-300" data-i18n="projects.iphone.title">iPhone 13 Dynamic</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.iphone.desc">Product showcase page with interactive color customization and smooth animations</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">HTML</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">CSS</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-sm font-medium rounded-full shadow-sm">JavaScript</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://oussamaelbouqi.github.io/landing-page/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live">Live Demo</span>
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adidas Glass Website -->
+        <div class="project-item web group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.web">Web</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/Responsive-Glass-Website.png" alt="Adidas Glass Website" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors duration-300" data-i18n="projects.adidas.title">Adidas Showcase</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.adidas.desc">Sports brand showcase with glassmorphism design and dynamic product displays</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">HTML</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">CSS</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-sm font-medium rounded-full shadow-sm">JavaScript</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://oussamaelbouqi.github.io/Responsive-Glass-Website/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live">Live Demo</span>
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avatar Landing Page -->
+        <div class="project-item web group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.web">Web</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/Landing Page avatar.png" alt="Avatar Landing Page" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-teal-600 transition-colors duration-300" data-i18n="projects.avatar.title">Avatar Immersive</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.avatar.desc">Immersive movie-themed landing page with parallax scrolling and cinematic animations</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">HTML</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">CSS</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-sm font-medium rounded-full shadow-sm">JavaScript</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://oussamaelbouqi.github.io/Avatar-Landing-Page/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-xl hover:from-teal-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live">Live Demo</span>
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                   </svg>
                 </a>
               </div>
@@ -673,35 +1065,30 @@
         </div>
 
         <!-- Desktop Applications -->
-        <div class="project-item desktop group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <!-- ESPECIG School Management System -->
+        <div class="project-item desktop group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="absolute top-4 right-4 z-20">
-            <span class="px-3 py-1 bg-indigo-500 text-white text-xs font-semibold rounded-full">Desktop</span>
+            <span class="px-3 py-1 bg-indigo-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.desktop">Desktop</span>
           </div>
           <div class="relative z-10">
             <div class="relative overflow-hidden">
-              <img src="assets/images/project-inventory.svg" alt="Inventory Management" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img src="assets/images/project_espegic.jpg" alt="ESPECIG School Management" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors duration-300" data-i18n="projects.inventory.title">Inventory Management System</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.inventory.desc">Desktop application for managing inventory, sales, and generating detailed reports with barcode scanning.</p>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-green-600 transition-colors duration-300" data-i18n="projects.especig.title">ESPECIG</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="exp.especig.desc">In 2024, I completed a 2-month internship at Especig school, where, with a group of colleagues, we created a desktop application for complete management of a private school, using MERISE, C#, SQL Server.</p>
               <div class="flex flex-wrap gap-2 mb-6">
                 <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">C#</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">WinForms</span>
                 <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-medium rounded-full shadow-sm">SQL Server</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">MERISE</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-full shadow-sm">Crystal Reports</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl hover:from-indigo-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  Download
-                  <svg class="w-4 h-4 group-hover/btn:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                  </svg>
-                </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-indigo-600 hover:text-indigo-600 transition-all duration-300 font-medium">
-                  Code
-                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                <a href="assets/images/RAPPORT DE STAGE(ESPEGIC).pdf" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live">Live Demo</span>
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                   </svg>
                 </a>
               </div>
@@ -709,35 +1096,90 @@
           </div>
         </div>
 
-        <div class="project-item desktop group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <!-- Full Product Management System (CRUD) -->
+        <div class="project-item web group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="absolute top-4 right-4 z-20">
-            <span class="px-3 py-1 bg-indigo-500 text-white text-xs font-semibold rounded-full">Desktop</span>
+            <span class="px-3 py-1 bg-yellow-500 text-white text-xs font-semibold rounded-full">JavaScript</span>
           </div>
           <div class="relative z-10">
             <div class="relative overflow-hidden">
-              <img src="assets/images/project-pos.svg" alt="POS System" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img src="assets/images/crud.png" alt="Product Management CRUD" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-green-600 transition-colors duration-300">Point of Sale System</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Complete POS solution with customer management, receipt printing, and real-time sales analytics.</p>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">Full Product Management System (CRUD)</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">Complete product management system with CRUD operations (Create, Read, Update, Delete) developed entirely in JavaScript for easy product management.</p>
               <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">C#</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">WPF</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-full shadow-sm">Crystal Reports</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-orange-600 text-white text-sm font-medium rounded-full shadow-sm">JavaScript</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">HTML</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">CSS</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  Download
-                  <svg class="w-4 h-4 group-hover/btn:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                <a href="https://oussamaelbouqi.github.io/Full-product-management-system-crud/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-xl hover:from-yellow-700 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.live">Live Demo</span>
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                   </svg>
                 </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
-                  Code
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photography Projects -->
+        <!-- Club de Football ACTF -->
+        <div class="project-item photography group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.photography">Photography</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project_ACTF.jpg" alt="ACTF Football Club" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-green-600 transition-colors duration-300" data-i18n="projects.actf.title">Club de Football ACTF</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.actf.desc">Regular photography coverage of players, staff and training sessions for Shatai Tiflet Football Club (2024 - present).</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-blue-600 text-white text-sm font-medium rounded-full shadow-sm">Sports Photography</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Event Coverage</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">Team Photography</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://www.instagram.com/actf_tiflet/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
                   <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYLN (Tiflet Young Leaders) - Photography Focus -->
+        <div class="project-item photography group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.photography">Photography</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project_tyln.jpg" alt="TYLN Tiflet Young Leaders" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300" data-i18n="projects.tyln.title">TYLN (Tiflet Young Leaders)</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.tyln.desc">Photography and event coverage - Leadership Academy, Education, Orientation Forum, Entrepreneurs Academy, Open Doors Days (2023 - present).</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-cyan-600 text-white text-sm font-medium rounded-full shadow-sm">Event Photography</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-teal-600 text-white text-sm font-medium rounded-full shadow-sm">Educational Events</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Leadership</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://www.instagram.com/tifletyoungleaders/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
+                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                   </svg>
                 </a>
               </div>
@@ -746,72 +1188,29 @@
         </div>
 
         <!-- Design & Media Projects -->
-        <div class="project-item design group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="absolute top-4 right-4 z-20">
-            <span class="px-3 py-1 bg-pink-500 text-white text-xs font-semibold rounded-full">Design</span>
-          </div>
-          <div class="relative z-10">
-            <div class="relative overflow-hidden">
-              <img src="assets/images/project-branding.svg" alt="Brand Identity" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-pink-600 transition-colors duration-300">Brand Identity Design</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Complete brand identity package including logo design, color palette, and marketing materials.</p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1.5 bg-gradient-to-r from-pink-500 to-rose-600 text-white text-sm font-medium rounded-full shadow-sm">Canva</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">Photoshop</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Illustrator</span>
-              </div>
-              <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-xl hover:from-pink-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  View Portfolio
-                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                  </svg>
-                </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-pink-600 hover:text-pink-600 transition-all duration-300 font-medium">
-                  Behance
-                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-item design group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+        <!-- LIK Initiative -->
+        <div class="project-item design group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
           <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="absolute top-4 right-4 z-20">
-            <span class="px-3 py-1 bg-pink-500 text-white text-xs font-semibold rounded-full">Design</span>
+            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.design">Design</span>
           </div>
           <div class="relative z-10">
             <div class="relative overflow-hidden">
-              <img src="assets/images/project-video.svg" alt="Video Production" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img src="assets/images/likinitiative.png" alt="LIK Initiative" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors duration-300">Video Production & Editing</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Professional video editing, motion graphics, and social media content creation for various clients.</p>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors duration-300" data-i18n="projects.lik.title">LIK Initiative</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.lik.desc">Coverage and visual content creation for solidarity events: Basma caravan (humanitarian caravan), Blood donation campaign, Circumcision campaign (2023 - 2024).</p>
               <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1.5 bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">CapCut</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-medium rounded-full shadow-sm">VN Editor</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">After Effects</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">Social Design</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-red-500 to-pink-600 text-white text-sm font-medium rounded-full shadow-sm">Campaign Design</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">Video Content</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  Watch Reel
+                <a href="https://www.instagram.com/likinitiative/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
                   <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M6 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                  </svg>
-                </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-orange-600 hover:text-orange-600 transition-all duration-300 font-medium">
-                  YouTube
-                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                   </svg>
                 </a>
               </div>
@@ -819,40 +1218,126 @@
           </div>
         </div>
 
-        <!-- Project Card -->
-        <div class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
+        <!-- Fondation Nibras -->
+        <div class="project-item design group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.design">Design</span>
+          </div>
           <div class="relative z-10">
             <div class="relative overflow-hidden">
-              <img src="assets/images/project-landing.svg" alt="Landing Page" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img src="assets/images/fondation.nibras.png" alt="Fondation Nibras" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors duration-300">Movie Landing Page</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">Cinematic landing page with smooth transitions and animations.</p>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300" data-i18n="projects.nibras.title">Fondation Nibras</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.nibras.desc">Production of promotional videos for training programs + Instagram page management (photography, editing, design).</p>
               <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">HTML</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">CSS</span>
-                <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm font-medium rounded-full shadow-sm">GSAP</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Video Production</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-600 text-white text-sm font-medium rounded-full shadow-sm">Social Media</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm font-medium rounded-full shadow-sm">Content Creation</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
-                  Live Demo
-                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                  </svg>
-                </a>
-                <a href="#" class="group/btn flex items-center gap-2 px-4 py-2 border-2 border-gray-300 text-gray-700 rounded-xl hover:border-purple-600 hover:text-purple-600 transition-all duration-300 font-medium">
-                  Code
+                <a href="https://www.instagram.com/fondation.nibras/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
                   <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                   </svg>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Center Anass -->
+        <div class="project-item design group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.design">Design</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/center_anas.png" alt="Center Anass" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-red-600 transition-colors duration-300" data-i18n="projects.anass.title">Center Anass</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.anass.desc">During two months, I was responsible for creating stories, designs and promotional videos for the Instagram page, as well as complete management of the page.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-red-500 to-pink-600 text-white text-sm font-medium rounded-full shadow-sm">Instagram Management</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-600 text-white text-sm font-medium rounded-full shadow-sm">Story Design</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Video Editing</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://www.instagram.com/centre_anass/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-xl hover:from-red-700 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
+                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Les Citoyens - حركة المواطنون -->
+        <div class="project-item design group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.design">Design</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/Les Citoyens.jfif" alt="Les Citoyens Movement" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-green-600 transition-colors duration-300" data-i18n="projects.citoyens.title">Les Citoyens </h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.citoyens.desc">Short video production and reels creation for the Citizens Movement, focusing on social and political awareness content.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm font-medium rounded-full shadow-sm">Reels Production</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-teal-500 to-cyan-600 text-white text-sm font-medium rounded-full shadow-sm">Video Editing</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Social Content</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://www.instagram.com/lescitoyensma/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
+                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYLN (Tiflet Young Leaders) - Design Focus -->
+        <div class="project-item design group bg-white/90 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 z-20">
+            <span class="px-3 py-1 bg-indigo-500 text-white text-xs font-semibold rounded-full" data-i18n="projects.category.design">Design</span>
+          </div>
+          <div class="relative z-10">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project_tyln.jpg" alt="TYLN Tiflet Young Leaders Design" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors duration-300" data-i18n="projects.tyln2.title">TYLN (Tiflet Young Leaders)</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="projects.tyln2.desc">Reels creation and visual content design for Leadership Academy, Education, Orientation Forum, Entrepreneurs Academy, Open Doors Days (2023 - present).</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium rounded-full shadow-sm">Reels Creation</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-600 text-white text-sm font-medium rounded-full shadow-sm">Visual Design</span>
+                <span class="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-full shadow-sm">Educational Content</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="https://www.instagram.com/tifletyoungleaders/" target="_blank" class="group/btn flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                  <span data-i18n="projects.profile">Voir Le Profil</span>
+                  <svg class="w-4 h-4 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
       </div>
     </div>
@@ -874,71 +1359,81 @@
       <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12">
           
-          <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+          <div class="bg-white/70  rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
             <div class="flex items-center mb-8">
               <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900" data-i18n="skills.tech">Compétences Techniques</h3>
+              <h3 class="text-2xl font-bold text-gray-900" data-i18n="skills.tech">Technologies</h3>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               <div class="group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-blue-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M16 2l-4 4v8l4 4 4-4V6l-4-4zm0 2.828L18.172 7H13.83L16 4.828zM12 8h8v6l-4 4-4-4V8z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-blue-600" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M76.6 75.4c-2.4 2.4-5.6 3.7-9 3.7-3.4 0-6.6-1.3-9-3.7-2.4-2.4-3.7-5.6-3.7-9s1.3-6.6 3.7-9c2.4-2.4 5.6-3.7 9-3.7 3.4 0 6.6 1.3 9 3.7 2.4 2.4 3.7 5.6 3.7 9s-1.3 6.6-3.7 9z" fill="#659AD2"/>
+                    <path d="M64 5C32.1 5 6 31.1 6 63s26.1 58 58 58 58-26.1 58-58S95.9 5 64 5zm0 108c-27.6 0-50-22.4-50-50s22.4-50 50-50 50 22.4 50 50-22.4 50-50 50z" fill="#659AD2"/>
+                    <path d="M90.1 64c0-14.4-11.7-26.1-26.1-26.1S37.9 49.6 37.9 64c0 8.9 4.5 16.8 11.3 21.5l2.8-4.8c-5.1-3.5-8.4-9.4-8.4-16.7 0-10.8 8.8-19.6 19.6-19.6s19.6 8.8 19.6 19.6c0 7.3-3.3 13.2-8.4 16.7l2.8 4.8c6.8-4.7 11.3-12.6 11.3-21.5z" fill="#FFF"/>
                   </svg>
                   <span class="font-semibold text-gray-800">C</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-purple-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm6.5 10.5c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5.672-1.5 1.5-1.5 1.5.672 1.5 1.5zm-13 0c0 .828-.672 1.5-1.5 1.5S6.5 13.328 6.5 12.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5zm6.5 8c-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4h2c0 3.314-2.686 6-6 6z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-purple-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" fill="#239120"/>
+                    <path d="M12 4c-4.411 0-8 3.589-8 8s3.589 8 8 8c2.52 0 4.77-1.17 6.24-3l-1.68-1.2C15.47 16.83 13.84 17.5 12 17.5c-3.03 0-5.5-2.47-5.5-5.5S8.97 6.5 12 6.5c1.84 0 3.47.67 4.56 1.7l1.68-1.2C16.77 5.17 14.52 4 12 4z" fill="#FFF"/>
+                    <path d="M18.5 10h-1v-1h-1v1h-1v1h1v1h1v-1h1v-1zm2 0h-1v-1h-1v1h-1v1h1v1h1v-1h1v-1z" fill="#239120"/>
                   </svg>
                   <span class="font-semibold text-gray-800">C#</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-blue-50 to-cyan-100 hover:from-blue-100 hover:to-cyan-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-blue-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M6 28L4 3h24l-2 25-10 3-10-3zm20.5-21.5H8.4l.2 2.5H26l-.5 5.5-5.5 2-5.5-2-.3-3.5h2.5l.1 1.5 3 1 3-1 .3-3.5H10l-.7-8.5h13.2z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" fill="#1572B6"/>
                   </svg>
                   <span class="font-semibold text-gray-800">CSS</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-indigo-50 to-indigo-100 hover:from-indigo-100 hover:to-indigo-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-indigo-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M2 2v28h28V2H2zm26 26H4V4h24v24zM6 24h20v-2H6v2zm0-4h20v-2H6v2zm0-4h20v-2H6v2zm0-4h20V8H6v4z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-indigo-600" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 120C33.1 120 8 94.9 8 64S33.1 8 64 8s56 25.1 56 56-25.1 56-56 56z"/>
+                    <path d="M64 16C37.5 16 16 37.5 16 64s21.5 48 48 48 48-21.5 48-48S90.5 16 64 16zm0 88c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" fill="#512BD4"/>
+                    <path d="M86.2 47.5l-18.1 32.4c-.9 1.6-2.5 2.6-4.3 2.6s-3.4-1-4.3-2.6L41.8 47.5c-.9-1.6-.9-3.6 0-5.2.9-1.6 2.5-2.6 4.3-2.6h36.2c1.8 0 3.4 1 4.3 2.6.9 1.6.9 3.6 0 5.2z" fill="#FFF"/>
+                    <path d="M64 52l8.7 15.5H55.3L64 52z" fill="#512BD4"/>
                   </svg>
                   <span class="font-semibold text-gray-800">ASP.NET</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-orange-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M6 2v28h20V8l-6-6H6zm12 2.828L21.172 8H13.83L16 4.828zM8 4h8v6h6v18H8V4z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-orange-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" fill="#E34F26"/>
                   </svg>
                   <span class="font-semibold text-gray-800">HTML</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-yellow-50 to-yellow-100 hover:from-yellow-100 hover:to-yellow-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-yellow-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M2 2v28h28V2H2zm25.568 14.34c-.492 1.716-1.824 2.779-3.624 3.066-.928.148-1.852.042-2.756-.312-.904-.354-1.704-.932-2.376-1.716l2.744-1.576c.336.564.744.996 1.224 1.296.48.3 1.008.45 1.584.45.576 0 1.05-.15 1.422-.45.372-.3.558-.708.558-1.224 0-.516-.186-.924-.558-1.224-.372-.3-.846-.45-1.422-.45h-.9v-3.6h.9c.576 0 1.05-.15 1.422-.45.372-.3.558-.708.558-1.224 0-.516-.186-.924-.558-1.224-.372-.3-.846-.45-1.422-.45-.576 0-1.104.15-1.584.45-.48.3-.888.732-1.224 1.296L18.012 8.34c.672-.784 1.472-1.362 2.376-1.716.904-.354 1.828-.46 2.756-.312 1.8.287 3.132 1.35 3.624 3.066.246.858.246 1.734 0 2.628-.246.894-.738 1.65-1.476 2.268.738.618 1.23 1.374 1.476 2.268.246.894.246 1.77 0 2.628z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-yellow-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9l1.034-.67c-.51-.77-1.204-1.13-2.327-1.13-1.29 0-2.133.5-2.133 2.045 0 1.49.824 2.254 2.624 2.78.766.28 1.203.42 1.203.9 0 .36-.309.664-.743.664-.85 0-1.368-.22-1.5-.93l-1.034.67c.308.92 1.204 1.45 2.834 1.45 1.542 0 2.904-.6 2.904-2.134.001-.972-.279-1.572-.907-1.866z"/>
+                    <path d="M13.5 11.739c0 1.175-.755 2.115-1.848 2.115-.814 0-1.295-.311-1.569-.755l-1.048.688c.51.92 1.356 1.603 2.658 1.603 1.794 0 2.953-.888 2.953-2.115V5.96h-1.146v5.779z" fill="#F7DF1E"/>
                   </svg>
                   <span class="font-semibold text-gray-800">JavaScript</span>
                 </div>
               </div>
-              <div class="group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <div class="group bg-gradient-to-br from-red-50 to-red-100 hover:from-red-100 hover:to-red-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-green-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M4 4v24h24V4H4zm22 22H6V6h20v20z"/>
-                    <path d="M8 8h16v2H8V8zm0 4h16v2H8v-2zm0 4h16v2H8v-2zm0 4h10v2H8v-2z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-red-600" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M2 2v124h124V2H2zm120 120H6V6h116v116z"/>
+                    <path d="M64 16c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm0 88c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" fill="#CC2927"/>
+                    <path d="M64 32c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm0 56c-13.2 0-24-10.8-24-24s10.8-24 24-24 24 10.8 24 24-10.8 24-24 24z" fill="#FFF"/>
+                    <path d="M52 52h24v8H52v-8zm0 12h24v4H52v-4z" fill="#CC2927"/>
                   </svg>
-                  <span class="font-semibold text-gray-800">Excel</span>
+                  <span class="font-semibold text-gray-800">SQL Server</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-indigo-50 to-blue-100 hover:from-indigo-100 hover:to-blue-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
@@ -970,9 +1465,8 @@
               </div>
               <div class="group bg-gradient-to-br from-orange-50 to-red-100 hover:from-orange-100 hover:to-red-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-orange-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M28 4H4C2.9 4 2 4.9 2 6v20c0 1.1.9 2 2 2h24c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 26V6h24v20H4z"/>
-                    <path d="M6 8h20v2H6V8zm0 4h20v2H6v-2zm0 4h20v2H6v-2zm0 4h10v2H6v-2z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-orange-600" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.860-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5L58.378 124.74c3.177 3.17 8.325 3.17 11.497 0l54.863-54.862a8.106 8.106 0 00-.001-11.5z" fill="#DE4C36"/>
                   </svg>
                   <span class="font-semibold text-gray-800">Git</span>
                 </div>
@@ -988,36 +1482,54 @@
               </div>
               <div class="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-gray-800" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M16 2C8.268 2 2 8.268 2 16c0 6.199 4.02 11.449 9.596 13.314.702.129.959-.305.959-.677 0-.334-.012-1.22-.019-2.393-3.898.847-4.72-1.88-4.72-1.88-.638-1.622-1.558-2.054-1.558-2.054-1.274-.871.096-.854.096-.854 1.409.099 2.15 1.447 2.15 1.447 1.252 2.144 3.284 1.525 4.084 1.166.127-.906.49-1.525.891-1.875-3.115-.354-6.389-1.558-6.389-6.931 0-1.531.547-2.783 1.443-3.764-.144-.354-.625-1.782.137-3.714 0 0 1.176-.377 3.854 1.438 1.118-.311 2.318-.467 3.51-.472 1.191.005 2.392.161 3.511.472 2.677-1.815 3.852-1.438 3.852-1.438.763 1.932.282 3.36.138 3.714.898.981 1.442 2.233 1.442 3.764 0 5.384-3.279 6.574-6.401 6.922.503.433.951 1.287.951 2.594 0 1.875-.017 3.387-.017 3.847 0 .375.254.811.964.674C25.984 27.445 30 22.197 30 16c0-7.732-6.268-14-14-14z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-gray-800" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"/>
                   </svg>
                   <span class="font-semibold text-gray-800">GitHub</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-purple-50 to-blue-100 hover:from-purple-100 hover:to-blue-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-purple-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 26C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12z"/>
-                    <path d="M8 10h16v2H8v-2zm0 4h16v2H8v-2zm0 4h16v2H8v-2zm0 4h10v2H8v-2z"/>
-                    <path d="M20 18l4-2-4-2v4z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-purple-600" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 120C33.1 120 8 94.9 8 64S33.1 8 64 8s56 25.1 56 56-25.1 56-56 56z"/>
+                    <path d="M64 16c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm0 88c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" fill="#00C4CC"/>
+                    <path d="M64 32c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm0 56c-13.2 0-24-10.8-24-24s10.8-24 24-24 24 10.8 24 24-10.8 24-24 24z" fill="#FF61F6"/>
+                    <path d="M52 52h24v8H52v-8zm0 12h16v4H52v-4z" fill="#00C4CC"/>
                   </svg>
                   <span class="font-semibold text-gray-800">Canva</span>
                 </div>
               </div>
               <div class="group bg-gradient-to-br from-pink-50 to-red-100 hover:from-pink-100 hover:to-red-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="text-center">
-                  <svg class="w-8 h-8 mb-2 mx-auto text-pink-600" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M4 4v24h24V4H4zm20 20H8V8h16v16z"/>
-                    <path d="M10 10v12l8-6-8-6z"/>
-                    <path d="M20 12h2v8h-2v-8z"/>
+                  <svg class="w-8 h-8 mb-2 mx-auto text-pink-600" viewBox="0 0 128 128" fill="currentColor">
+                    <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 120C33.1 120 8 94.9 8 64S33.1 8 64 8s56 25.1 56 56-25.1 56-56 56z" fill="#FF0050"/>
+                    <path d="M64 16c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm0 88c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z" fill="#FFF"/>
+                    <path d="M48 44v40l32-20-32-20z" fill="#FF0050"/>
+                    <path d="M88 52v24h8V52h-8z" fill="#FF0050"/>
                   </svg>
                   <span class="font-semibold text-gray-800">CapCut</span>
+                </div>
+              </div>
+              <div class="group bg-gradient-to-br from-purple-50 to-indigo-100 hover:from-purple-100 hover:to-indigo-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div class="text-center">
+                  <svg class="w-8 h-8 mb-2 mx-auto text-purple-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.583 4.531l-15.052 15.052v-6.021l9.031-9.031h6.021zm-15.052 15.052l15.052-15.052v6.021l-9.031 9.031h-6.021zm15.052-15.052h-6.021l-9.031 9.031v6.021l15.052-15.052z" fill="#5C2D91"/>
+                  </svg>
+                  <span class="font-semibold text-gray-800">Visual Studio</span>
+                </div>
+              </div>
+              <div class="group bg-gradient-to-br from-blue-50 to-cyan-100 hover:from-blue-100 hover:to-cyan-200 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div class="text-center">
+                  <svg class="w-8 h-8 mb-2 mx-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" fill="#007ACC"/>
+                  </svg>
+                  <span class="font-semibold text-gray-800">VS Code</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+          <div class="bg-white/70  rounded-2xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
             <div class="flex items-center mb-8">
               <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1104,7 +1616,7 @@
         <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="contact.subtitle">Ready to bring your ideas to life? Let's collaborate and create something amazing together!</p>
       </div>
       <div class="max-w-2xl mx-auto">
-        <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20">
+        <div class="bg-white/80  rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20">
           <form id="contact-form" class="space-y-8">
             <div class="relative">
               <label for="name" class="block text-lg font-semibold text-gray-800 mb-3" data-i18n="contact.name">Name</label>
@@ -1115,7 +1627,7 @@
                   </svg>
                 </div>
                 <input type="text" id="name" name="name" required 
-                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-lg bg-white/50 backdrop-blur-sm hover:bg-white/80" 
+                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-lg bg-white/50  hover:bg-white/80" 
                   data-i18n="contact.name.placeholder" placeholder="Your name" />
               </div>
             </div>
@@ -1129,7 +1641,7 @@
                   </svg>
                 </div>
                 <input type="email" id="email" name="email" required 
-                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-lg bg-white/50 backdrop-blur-sm hover:bg-white/80" 
+                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 text-lg bg-white/50  hover:bg-white/80" 
                   data-i18n="contact.email.placeholder" placeholder="your.email@example.com" />
               </div>
             </div>
@@ -1143,7 +1655,7 @@
                   </svg>
                 </div>
                 <textarea id="message" name="message" rows="6" required 
-                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 resize-none text-lg bg-white/50 backdrop-blur-sm hover:bg-white/80" 
+                  class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-300 resize-none text-lg bg-white/50  hover:bg-white/80" 
                   data-i18n="contact.message.placeholder" placeholder="Your message..."></textarea>
               </div>
             </div>
@@ -1233,11 +1745,11 @@
           filterButtons.forEach(btn => {
             btn.classList.remove('active');
             btn.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white');
-            btn.classList.add('bg-white/80', 'backdrop-blur-sm', 'text-gray-700', 'border', 'border-gray-200');
+            btn.classList.add('bg-white/80', '', 'text-gray-700', 'border', 'border-gray-200');
           });
           
           this.classList.add('active');
-          this.classList.remove('bg-white/80', 'backdrop-blur-sm', 'text-gray-700', 'border', 'border-gray-200');
+          this.classList.remove('bg-white/80', '', 'text-gray-700', 'border', 'border-gray-200');
           this.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white');
           
           // Filter projects
@@ -1438,12 +1950,99 @@
 
     // Performance monitoring
     window.addEventListener('load', () => {
+      // Hide loading screen
+      const loadingScreen = document.getElementById('loading-screen');
+      if (loadingScreen) {
+        setTimeout(() => {
+          loadingScreen.style.opacity = '0';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 300);
+        }, 500);
+      }
+      
       // Send performance metrics to service worker
       if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({
           type: 'PERFORMANCE_MARK',
           mark: 'page-load-complete'
         });
+      }
+    });
+
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollProgress = document.getElementById('scroll-progress');
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.offsetHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      if (scrollProgress) {
+        scrollProgress.style.width = scrollPercent + '%';
+      }
+    });
+
+    // Enhanced smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add intersection observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const animateElements = document.querySelectorAll('.project-item, .skill, .exp, .service-card');
+      animateElements.forEach(el => observer.observe(el));
+    });
+
+    // Add typing effect to hero title
+    function typeWriter(element, text, speed = 100) {
+      let i = 0;
+      element.innerHTML = '';
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    // Initialize typing effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroTitle = document.querySelector('[data-i18n="hero.title"]');
+      if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        setTimeout(() => {
+          typeWriter(heroTitle, originalText, 80);
+        }, 1000);
       }
     });
   </script>

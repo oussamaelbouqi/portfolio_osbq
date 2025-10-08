@@ -71,6 +71,7 @@ class LanguageManager {
         'hero.location': 'Tiflet, Morocco',
         'hero.cta1': 'Get In Touch',
         'hero.cta2': 'View Projects',
+        'hero.cta3': 'Download CV',
         
         // About
         'about.title': 'About Me',
@@ -82,51 +83,52 @@ class LanguageManager {
         'about.lang.german': 'German (Intermediate)',
         'about.lang.english': 'English (Basic)',
         'about.lang.french': 'French (Beginner)',
-        'about.int1': 'Web Development',
-        'about.int2': 'Photography & Video',
-        'about.int3': 'UI/UX Design',
-        'about.int4': 'Problem Solving',
+        'about.int1': 'Web & Software Development',
+        'about.int2': 'Video Editing & Photography',
+        'about.int3': 'Visual Identity & Design',
+        'about.int4': 'Social Projects & NGO Engagement',
         
         // Services
-        'services.title': 'Services I Offer',
-        'services.subtitle': 'Transforming ideas into digital reality with cutting-edge technology and creative solutions',
-        'services.web.title': 'Web Development',
-        'services.web.desc': 'Building responsive and modern web applications using ASP.NET, C#, and JavaScript.',
-        'services.database.title': 'Database Design',
-        'services.database.desc': 'Designing and implementing efficient database solutions using SQL Server and MERISE methodology.',
+        'services.title': 'Services Offered',
+        'services.subtitle': 'Transforming ideas into digital solutions through software development, design and creativity',
+        'services.web.title': 'Web & Software Development',
+        'services.web.desc': 'Creating modern and responsive web and desktop applications using ASP.NET, C#, HTML, CSS, JavaScript and SQL Server.',
+        'services.database.title': 'Database Design & Modeling',
+        'services.database.desc': 'Design and implementation of high-performance databases and information systems using SQL Server, Merise and UML.',
         'services.desktop.title': 'Desktop Applications',
-        'services.desktop.desc': 'Creating powerful desktop applications with C# and .NET Framework for Windows.',
+        'services.desktop.desc': 'Development of high-performance desktop applications with C# and .NET Framework, integrating report creation with Crystal Reports.',
         'services.design.title': 'Design, Photography & Social Media',
-        'services.design.desc': 'I offer visual identity creation, professional photography for events and products, as well as social media content management. From photos and videos to creative publications, I help brands and initiatives strengthen their digital presence and capture their audience\'s attention.',
+        'services.design.desc': 'Creation of visual identities, professional photography and video editing for events, brands or organizations. Social media content management to strengthen the digital presence of initiatives.',
         'services.reports.title': 'Reports & Documentation',
-        'services.reports.desc': 'Creating professional reports using Crystal Reports and comprehensive project documentation.',
+        'services.reports.desc': 'Creation of professional reports and technical documentation with Crystal Reports, Word, Excel and PowerPoint.',
         
         // Experience
         'exp.title': 'Experience',
         'exp.techboy.title': 'TECHBOY',
         'exp.techboy.role': 'Final Project',
         'exp.techboy.location': 'Tiflet, Morocco',
-        'exp.techboy.desc1': 'End-of-studies project covering full development lifecycle',
-        'exp.techboy.desc2': 'Built e-commerce web application using ASP.NET, C#, JavaScript, SQL Server',
-        'exp.techboy.desc3': 'Delivered complete solution with documentation and live demo',
+        'exp.techboy.desc': 'As part of my final project for obtaining the Specialized Technician Diploma (DTS) in Computer Development, I worked in a group with a colleague to develop an e-commerce website called Tech Boy. We designed and developed this A to Z site using the following technologies: ASP.NET, CSS, HTML, JavaScript, SQL Server, and UML.',
         
         'exp.especig.title': 'ESPECIG',
         'exp.especig.role': 'Internship',
         'exp.especig.period': 'May 2024 – Jul 2024',
-        'exp.especig.desc1': 'Developed desktop application for private school management',
-        'exp.especig.desc2': 'Designed database using MERISE methodology',
-        'exp.especig.desc3': 'Technologies: C#, SQL Server, Crystal Reports',
+        'exp.especig.location': 'Tiflet',
+        'exp.especig.desc': 'In 2024, I completed a 2-month internship at Especig school, where, with a group of colleagues, we created a desktop application for complete management of a private school, using MERISE, C#, SQL Server.',
         
-        'exp.nibras.title': 'Fondation Nibras',
-        'exp.nibras.role': 'Internship',
+        'exp.webdev.title': 'Web Design and Front-End Development',
+        'exp.webdev.role': 'Personal Projects',
+        'exp.webdev.desc': 'A collection of modern web applications showcasing diverse design approaches and interactive user experiences. Each project demonstrates different aspects of front-end development, from responsive design to dynamic animations and user interface innovation.',
+        
+        'exp.nibras.title': 'Fondation Nibras pour le développement',
+        'exp.nibras.role': 'Archive Intern',
         'exp.nibras.period': 'May 2023 – Jun 2023',
-        'exp.nibras.desc1': 'Managed archiving and information organization',
-        'exp.nibras.desc2': 'Improved data accessibility and documentation',
-        'exp.nibras.desc3': 'Developed organizational and communication skills',
+        'exp.nibras.location': 'Tiflet',
+        'exp.nibras.desc': 'In 2023, I completed a one-month internship at Fondation Nibras for development, where I applied my knowledge in archiving and information organization, and developed my skills in office tools.',
+        
         
         // Projects
         'projects.title': 'Projects',
-        'projects.subtitle': 'Explore my diverse portfolio of web applications, desktop software, and creative projects',
+        'projects.subtitle': 'Discover my comprehensive portfolio featuring cutting-edge web applications, robust desktop solutions, creative multimedia projects, and impactful social initiatives. Each project reflects my passion for innovation, technical excellence, and meaningful digital experiences.',
         'projects.dashboard.title': 'Dashboard Interface',
         'projects.dashboard.desc': 'Interactive dashboard with data visualization and responsive charts.',
         'projects.product.title': 'Product Showcase',
@@ -147,6 +149,22 @@ class LanguageManager {
         'projects.branding.desc': 'Complete brand identity package including logo design, color palette, and marketing materials.',
         'projects.video.title': 'Video Production & Editing',
         'projects.video.desc': 'Professional video editing, motion graphics, and social media content creation for various clients.',
+        'projects.personal.title': 'Personal Portfolio',
+        'projects.personal.desc': 'Professional portfolio showcasing development skills and creative projects',
+        'projects.dashboard.title': 'Dashboard Interface',
+        'projects.dashboard.desc': 'Modern admin dashboard with real-time analytics and data visualization',
+        'projects.iphone.title': 'iPhone 13 Dynamic',
+        'projects.iphone.desc': 'Product showcase page with interactive color customization and smooth animations',
+        'projects.adidas.title': 'Adidas Showcase',
+        'projects.adidas.desc': 'Sports brand showcase with glassmorphism design and dynamic product displays',
+        'projects.avatar.title': 'Avatar Immersive',
+        'projects.avatar.desc': 'Immersive movie-themed landing page with parallax scrolling and cinematic animations',
+        'projects.pizza.title': 'Pizza Mama',
+        'projects.pizza.desc': 'Italian restaurant website with online ordering system and interactive menu',
+        'projects.techboy.title': 'Tech Boy E-Commerce',
+        'projects.techboy.desc': 'Full-stack e-commerce platform',
+        'projects.especig.title': 'ESPECIG',
+        'projects.especig.desc': 'School management system with comprehensive features',
         'projects.live': 'Live Demo',
         'projects.code': 'Code',
         'projects.download': 'Download',
@@ -158,6 +176,15 @@ class LanguageManager {
         'projects.filter.web': 'Web Development',
         'projects.filter.desktop': 'Desktop Apps',
         'projects.filter.design': 'Design & Media',
+        'projects.filter.photography': 'Photography',
+        'projects.profile': 'View Profile',
+        'projects.actf.title': 'ACTF Football Club',
+        'projects.actf.desc': 'Regular photography coverage of players, staff and training sessions for Shatai Tiflet Football Club (2024 - present).',
+        'projects.citoyens.title': 'The Citizens Movement',
+        'projects.category.web': 'Web',
+        'projects.category.desktop': 'Desktop',
+        'projects.category.design': 'Design',
+        'projects.category.photography': 'Photography',
         
         // Skills
         'skills.title': 'Skills',
@@ -183,6 +210,7 @@ class LanguageManager {
         
         // Footer
         'footer.rights': 'All rights reserved.',
+        
       },
       
       ar: {
@@ -200,6 +228,7 @@ class LanguageManager {
         'hero.location': 'تيفلت، المغرب',
         'hero.cta1': 'تواصل معي',
         'hero.cta2': 'عرض المشاريع',
+        'hero.cta3': 'تحميل سيرتي الذاتية',
         
         // About
         'about.title': 'عني',
@@ -211,51 +240,52 @@ class LanguageManager {
         'about.lang.german': 'الألمانية (متوسط)',
         'about.lang.english': 'الإنجليزية (أساسي)',
         'about.lang.french': 'الفرنسية (مبتدئ)',
-        'about.int1': 'تطوير الويب',
-        'about.int2': 'التصوير والفيديو',
-        'about.int3': 'تصميم واجهة المستخدم',
-        'about.int4': 'حل المشكلات',
+        'about.int1': 'تطوير الويب والبرمجيات',
+        'about.int2': 'تحرير الفيديو والتصوير الفوتوغرافي',
+        'about.int3': 'الهوية البصرية والتصميم',
+        'about.int4': 'المشاريع الاجتماعية والمشاركة في المنظمات غير الحكومية',
         
         // Services
-        'services.title': 'الخدمات التي أقدمها',
-        'services.subtitle': 'تحويل الأفكار إلى واقع رقمي باستخدام التكنولوجيا المتطورة والحلول الإبداعية',
-        'services.web.title': 'تطوير الويب',
-        'services.web.desc': 'بناء تطبيقات ويب متجاوبة وحديثة باستخدام ASP.NET و C# و JavaScript.',
-        'services.database.title': 'تصميم قواعد البيانات',
-        'services.database.desc': 'تصميم وتنفيذ حلول قواعد بيانات فعالة باستخدام SQL Server ومنهجية MERISE.',
+        'services.title': 'الخدمات المقدمة',
+        'services.subtitle': 'تحويل الأفكار إلى حلول رقمية من خلال تطوير البرمجيات والتصميم والإبداع',
+        'services.web.title': 'تطوير الويب والبرمجيات',
+        'services.web.desc': 'إنشاء تطبيقات ويب وسطح مكتب حديثة ومتجاوبة باستخدام ASP.NET و C# و HTML و CSS و JavaScript و SQL Server.',
+        'services.database.title': 'تصميم ونمذجة قواعد البيانات',
+        'services.database.desc': 'تصميم وتنفيذ قواعد بيانات عالية الأداء وأنظمة معلومات باستخدام SQL Server و Merise و UML.',
         'services.desktop.title': 'تطبيقات سطح المكتب',
-        'services.desktop.desc': 'إنشاء تطبيقات سطح مكتب قوية باستخدام C# و .NET Framework لنظام Windows.',
-        'services.design.title': 'التصميم، التصوير والشبكات الاجتماعية',
-        'services.design.desc': 'أقدم خدمات إنشاء الهوية البصرية، والتصوير الفوتوغرافي الاحترافي للفعاليات والمنتجات، بالإضافة إلى إدارة المحتوى على الشبكات الاجتماعية. من الصور ومقاطع الفيديو إلى المنشورات الإبداعية، أساعد العلامات التجارية والمبادرات على تعزيز حضورها الرقمي وجذب انتباه جمهورها.',
+        'services.desktop.desc': 'تطوير تطبيقات سطح مكتب عالية الأداء باستخدام C# و .NET Framework، مع دمج إنشاء التقارير باستخدام Crystal Reports.',
+        'services.design.title': 'التصميم، التصوير ووسائل التواصل الاجتماعي',
+        'services.design.desc': 'إنشاء هويات بصرية، تصوير فوتوغرافي احترافي وتحرير فيديو للفعاليات والعلامات التجارية أو المنظمات. إدارة المحتوى لوسائل التواصل الاجتماعي لتعزيز الحضور الرقمي للمبادرات.',
         'services.reports.title': 'التقارير والتوثيق',
-        'services.reports.desc': 'إنشاء تقارير احترافية باستخدام Crystal Reports وتوثيق شامل للمشاريع.',
+        'services.reports.desc': 'إنشاء تقارير احترافية ووثائق تقنية باستخدام Crystal Reports و Word و Excel و PowerPoint.',
         
         // Experience
-        'exp.title': 'الخبرة',
+        'exp.title': 'الخبرات',
         'exp.techboy.title': 'TECHBOY',
-        'exp.techboy.role': 'مشروع التخرج',
+        'exp.techboy.role': 'مشروع نهاية الدراسة',
         'exp.techboy.location': 'تيفلت، المغرب',
-        'exp.techboy.desc1': 'مشروع نهاية الدراسة يغطي دورة التطوير الكاملة',
-        'exp.techboy.desc2': 'بناء تطبيق ويب للتجارة الإلكترونية باستخدام ASP.NET و C# و JavaScript و SQL Server',
-        'exp.techboy.desc3': 'تسليم حل كامل مع التوثيق والعرض التوضيحي المباشر',
+        'exp.techboy.desc': 'في إطار مشروع نهاية الدراسة للحصول على دبلوم التقني المتخصص (DTS) في التطوير المعلوماتي، عملت في مجموعة مع زميل لتطوير موقع ويب للتجارة الإلكترونية يسمى Tech Boy. قمنا بتصميم وتطوير هذا الموقع من الألف إلى الياء باستخدام التقنيات التالية: ASP.NET، CSS، HTML، JavaScript، SQL Server، وUML.',
         
         'exp.especig.title': 'ESPECIG',
         'exp.especig.role': 'تدريب',
         'exp.especig.period': 'مايو 2024 – يوليو 2024',
-        'exp.especig.desc1': 'تطوير تطبيق سطح المكتب لإدارة المدارس الخاصة',
-        'exp.especig.desc2': 'تصميم قاعدة البيانات باستخدام منهجية MERISE',
-        'exp.especig.desc3': 'التقنيات: C# و SQL Server و Crystal Reports',
+        'exp.especig.location': 'تيفلت',
+        'exp.especig.desc': 'في 2024، أنجزت تدريباً لمدة شهرين في مدرسة Especig، حيث قمنا مع مجموعة من الزملاء بإنشاء تطبيق سطح مكتب للإدارة الشاملة لمدرسة خاصة، باستخدام MERISE وC# وSQL Server.',
         
-        'exp.nibras.title': 'مؤسسة نبراس',
-        'exp.nibras.role': 'تدريب',
+        'exp.webdev.title': 'تصميم الويب وتطوير الواجهة الأمامية',
+        'exp.webdev.role': 'مشاريع شخصية',
+        'exp.webdev.desc': 'مجموعة من تطبيقات الويب الحديثة التي تعرض مناهج تصميم متنوعة وتجارب مستخدم تفاعلية. كل مشروع يُظهر جوانب مختلفة من تطوير الواجهة الأمامية، من التصميم المتجاوب إلى الرسوم المتحركة الديناميكية وابتكار واجهة المستخدم.',
+        
+        'exp.nibras.title': 'مؤسسة نبراس للتنمية',
+        'exp.nibras.role': 'متدرب في الأرشيف',
         'exp.nibras.period': 'مايو 2023 – يونيو 2023',
-        'exp.nibras.desc1': 'إدارة الأرشفة وتنظيم المعلومات',
-        'exp.nibras.desc2': 'تحسين إمكانية الوصول إلى البيانات والتوثيق',
-        'exp.nibras.desc3': 'تطوير المهارات التنظيمية والتواصلية',
+        'exp.nibras.location': 'تيفلت',
+        'exp.nibras.desc': 'في 2023، أنجزت تدريباً لمدة شهر في مؤسسة نبراس للتنمية، حيث طبقت معرفتي في الأرشفة وتنظيم المعلومات، وطورت مهاراتي في أدوات المكتب.',
+        
         
         // Projects
         'projects.title': 'المشاريع',
-        'projects.subtitle': 'استكشف مجموعتي المتنوعة من تطبيقات الويب وبرامج سطح المكتب والمشاريع الإبداعية',
+        'projects.subtitle': 'اكتشف محفظة أعمالي الشاملة التي تضم تطبيقات ويب متطورة، حلول سطح مكتب قوية، مشاريع وسائط متعددة إبداعية، ومبادرات اجتماعية مؤثرة. كل مشروع يعكس شغفي بالابتكار والتميز التقني والتجارب الرقمية المعنوية.',
         'projects.dashboard.title': 'واجهة لوحة التحكم',
         'projects.dashboard.desc': 'لوحة تحكم تفاعلية مع تصور البيانات والرسوم البيانية المتجاوبة.',
         'projects.product.title': 'عرض المنتج',
@@ -276,6 +306,23 @@ class LanguageManager {
         'projects.branding.desc': 'حزمة هوية تجارية كاملة تشمل تصميم الشعار ولوحة الألوان والمواد التسويقية.',
         'projects.video.title': 'إنتاج وتحرير الفيديو',
         'projects.video.desc': 'تحرير فيديو احترافي ورسوم متحركة وإنشاء محتوى وسائل التواصل الاجتماعي لعملاء متنوعين.',
+        'projects.personal.title': 'البورتفوليو الشخصي',
+        'projects.personal.desc': 'بورتفوليو احترافي يعرض مهارات التطوير والمشاريع الإبداعية',
+        'projects.dashboard.title': 'واجهة لوحة التحكم',
+        'projects.dashboard.desc': 'لوحة تحكم إدارية حديثة مع تحليلات في الوقت الفعلي وتصور البيانات',
+        'projects.iphone.title': 'آيفون 13 الديناميكي',
+        'projects.iphone.desc': 'صفحة عرض منتج مع تخصيص الألوان التفاعلي والرسوم المتحركة السلسة',
+        'projects.adidas.title': 'عرض أديداس',
+        'projects.adidas.desc': 'عرض علامة تجارية رياضية بتصميم زجاجي وعروض منتجات ديناميكية',
+        'projects.avatar.title': 'أفاتار الغامر',
+        'projects.avatar.desc': 'صفحة هبوط غامرة بموضوع الأفلام مع التمرير المتوازي والرسوم المتحركة السينمائية',
+        'projects.pizza.title': 'بيتزا ماما',
+        'projects.pizza.desc': 'موقع مطعم إيطالي مع نظام طلب عبر الإنترنت وقائمة تفاعلية',
+        'projects.techboy.title': 'تيك بوي للتجارة الإلكترونية',
+        'projects.techboy.desc': 'منصة تجارة إلكترونية متكاملة',
+        'projects.especig.title': 'إسبيسيج',
+        'projects.especig.desc': 'نظام إدارة مدرسة بميزات شاملة',
+        'projects.docs': 'الوثائق',
         'projects.live': 'عرض مباشر',
         'projects.code': 'الكود',
         'projects.download': 'تحميل',
@@ -287,6 +334,15 @@ class LanguageManager {
         'projects.filter.web': 'تطوير الويب',
         'projects.filter.desktop': 'تطبيقات سطح المكتب',
         'projects.filter.design': 'التصميم والإعلام',
+        'projects.filter.photography': 'التصوير الفوتوغرافي',
+        'projects.profile': 'عرض الملف الشخصي',
+        'projects.actf.title': 'نادي كرة القدم ACTF',
+        'projects.actf.desc': 'تغطية تصويرية منتظمة للاعبين والطاقم وجلسات التدريب لنادي شطاي تيفلت لكرة القدم (2024 - حتى الآن).',
+        'projects.citoyens.title': 'حركة المواطنون',
+        'projects.category.web': 'ويب',
+        'projects.category.desktop': 'سطح المكتب',
+        'projects.category.design': 'تصميم',
+        'projects.category.photography': 'تصوير',
         
         // Skills
         'skills.title': 'المهارات',
@@ -312,6 +368,7 @@ class LanguageManager {
         
         // Footer
         'footer.rights': 'جميع الحقوق محفوظة.',
+        
       },
       
       fr: {
@@ -329,6 +386,7 @@ class LanguageManager {
         'hero.location': 'Tiflet, Maroc',
         'hero.cta1': 'Me Contacter',
         'hero.cta2': 'Voir les Projets',
+        'hero.cta3': 'Télécharger CV',
         
         // About
         'about.title': 'À Propos de Moi',
@@ -340,51 +398,52 @@ class LanguageManager {
         'about.lang.german': 'Allemand (Intermédiaire)',
         'about.lang.english': 'Anglais (Basique)',
         'about.lang.french': 'Français (Débutant)',
-        'about.int1': 'Développement Web',
-        'about.int2': 'Photographie & Vidéo',
-        'about.int3': 'Design UI/UX',
-        'about.int4': 'Résolution de Problèmes',
-        
+        'about.int1': 'Développement Web & Logiciel',
+        'about.int2': 'Montage Vidéo & Photographie',
+        'about.int3': 'Identité Visuelle & Design',
+        'about.int4': 'Projets Sociaux & Engagement au sein d\'ONG',
+
         // Services
-        'services.title': 'Services que j\'offre',
-        'services.subtitle': 'Transformer les idées en réalité numérique avec une technologie de pointe et des solutions créatives',
-        'services.web.title': 'Développement Web',
-        'services.web.desc': 'Création d\'applications web réactives et modernes en utilisant ASP.NET, C# et JavaScript.',
-        'services.database.title': 'Conception de Base de Données',
-        'services.database.desc': 'Conception et mise en œuvre de solutions de bases de données efficaces avec SQL Server et la méthodologie MERISE.',
+        'services.title': 'Services Proposés',
+        'services.subtitle': 'Transformer les idées en solutions numériques grâce au développement logiciel, au design et à la créativité',
+        'services.web.title': 'Développement Web & Logiciel',
+        'services.web.desc': 'Création d\'applications web et de bureau modernes et réactives en utilisant ASP.NET, C#, HTML, CSS, JavaScript et SQL Server.',
+        'services.database.title': 'Conception et Modélisation de Bases de Données',
+        'services.database.desc': 'Conception et mise en œuvre de bases de données performantes et de systèmes d\'information à l\'aide de SQL Server, Merise et UML.',
         'services.desktop.title': 'Applications de Bureau',
-        'services.desktop.desc': 'Création d\'applications de bureau puissantes avec C# et .NET Framework pour Windows.',
-        'services.design.title': 'Design, Photographie & Réseaux sociaux',
-        'services.design.desc': 'Je propose des services de création d\'identité visuelle, de photographie professionnelle pour événements et produits, ainsi que la gestion de contenus sur les réseaux sociaux. Des photos et vidéos aux publications créatives, j\'aide les marques et initiatives à renforcer leur présence digitale et à capter l\'attention de leur audience.',
-        'services.reports.title': 'Rapports et Documentation',
-        'services.reports.desc': 'Création de rapports professionnels avec Crystal Reports et documentation complète des projets.',
+        'services.desktop.desc': 'Développement d\'applications de bureau performantes avec C# et .NET Framework, intégrant la création de rapports avec Crystal Reports.',
+        'services.design.title': 'Design, Photographie & Médias Sociaux',
+        'services.design.desc': 'Création d\'identités visuelles, photographie professionnelle et montage vidéo pour des événements, des marques ou des organisations. Gestion de contenu pour les réseaux sociaux afin de renforcer la présence numérique des initiatives.',
+        'services.reports.title': 'Rapports & Documentation',
+        'services.reports.desc': 'Création de rapports professionnels et de documentations techniques avec Crystal Reports, Word, Excel et PowerPoint.',
         
         // Experience
-        'exp.title': 'Expérience',
+        'exp.title': 'Expériences',
         'exp.techboy.title': 'TECHBOY',
-        'exp.techboy.role': 'Projet Final',
+        'exp.techboy.role': 'Projet de fin d\'\u00e9tudes',
         'exp.techboy.location': 'Tiflet, Maroc',
-        'exp.techboy.desc1': "Projet de fin d'études couvrant le cycle complet de développement",
-        'exp.techboy.desc2': "Application web e-commerce construite avec ASP.NET, C#, JavaScript, SQL Server",
-        'exp.techboy.desc3': 'Solution complète livrée avec documentation et démo en direct',
+        'exp.techboy.desc': 'Dans le cadre de mon projet de fin d\'\u00e9tudes pour l\'obtention du Diplôme de Technicien Spécialisé (DTS) en Développement Informatique, j\'ai travaillé en groupe avec un collègue pour développer un site web de vente d\'\u00e9lectroniques, nommé Tech Boy. Nous avons conçu et développé ce site de A à Z en utilisant les technologies suivantes : ASP.NET, CSS, HTML, JavaScript, SQL Server, et UML.',
         
         'exp.especig.title': 'ESPECIG',
         'exp.especig.role': 'Stage',
         'exp.especig.period': 'Mai 2024 – Juil 2024',
-        'exp.especig.desc1': "Application de bureau développée pour la gestion d'école privée",
-        'exp.especig.desc2': 'Base de données conçue avec la méthodologie MERISE',
-        'exp.especig.desc3': 'Technologies: C#, SQL Server, Crystal Reports',
+        'exp.especig.location': 'Tiflet',
+        'exp.especig.desc': 'En 2024, j\'ai réalisé un stage de 2 mois à l\'\u00e9cole Especig, où, avec un groupe de collègues, nous avons créé une application de bureau pour la gestion complète d\'une école privée, en utilisant MERISE, C#, SQL Server.',
         
-        'exp.nibras.title': 'Fondation Nibras',
-        'exp.nibras.role': 'Stage',
+        'exp.webdev.title': 'Conception Web et Développement Front-End',
+        'exp.webdev.role': 'Projets personnels',
+        'exp.webdev.desc': 'Une collection d\'applications web modernes présentant diverses approches de design et des expériences utilisateur interactives. Chaque projet démontre différents aspects du développement front-end, du design responsive aux animations dynamiques et à l\'innovation d\'interface utilisateur.',
+        
+        'exp.nibras.title': 'Fondation Nibras pour le développement',
+        'exp.nibras.role': 'Stagiaire en Archivage',
         'exp.nibras.period': 'Mai 2023 – Juin 2023',
-        'exp.nibras.desc1': "Gestion de l'archivage et organisation de l'information",
-        'exp.nibras.desc2': "Amélioration de l'accessibilité des données et de la documentation",
-        'exp.nibras.desc3': 'Développement des compétences organisationnelles et de communication',
+        'exp.nibras.location': 'Tiflet',
+        'exp.nibras.desc': 'En 2023, j\'ai effectué un stage d\'un mois à Fondation Nibras pour le développement, où j\'ai appliqué mes connaissances en archivage et organisation des informations, et j\'ai développé mes compétences en outils bureautiques.',
+        
         
         // Projects
         'projects.title': 'Projets',
-        'projects.subtitle': 'Explorez mon portfolio diversifié d\'applications web, de logiciels de bureau et de projets créatifs',
+        'projects.subtitle': 'Découvrez mon portfolio complet présentant des applications web de pointe, des solutions de bureau robustes, des projets multimédias créatifs et des initiatives sociales impactantes. Chaque projet reflète ma passion pour l\'innovation, l\'excellence technique et les expériences numériques significatives.',
         'projects.dashboard.title': 'Interface Tableau de Bord',
         'projects.dashboard.desc': 'Tableau de bord interactif avec visualisation de données et graphiques réactifs.',
         'projects.product.title': 'Vitrine Produit',
@@ -405,6 +464,23 @@ class LanguageManager {
         'projects.branding.desc': 'Package d\'identité de marque complet incluant design de logo, palette de couleurs et matériaux marketing.',
         'projects.video.title': 'Production et Montage Vidéo',
         'projects.video.desc': 'Montage vidéo professionnel, motion graphics et création de contenu pour réseaux sociaux pour divers clients.',
+        'projects.personal.title': 'Portfolio Personnel',
+        'projects.personal.desc': 'Portfolio professionnel présentant les compétences de développement et les projets créatifs',
+        'projects.dashboard.title': 'Interface Tableau de Bord',
+        'projects.dashboard.desc': 'Tableau de bord administratif moderne avec analyses en temps réel et visualisation de données',
+        'projects.iphone.title': 'iPhone 13 Dynamique',
+        'projects.iphone.desc': 'Page de présentation de produit avec personnalisation interactive des couleurs et animations fluides',
+        'projects.adidas.title': 'Vitrine Adidas',
+        'projects.adidas.desc': 'Vitrine de marque sportive avec design glassmorphisme et affichages de produits dynamiques',
+        'projects.avatar.title': 'Avatar Immersif',
+        'projects.avatar.desc': 'Page de destination immersive sur le thème du cinéma avec défilement parallaxe et animations cinématographiques',
+        'projects.pizza.title': 'Pizza Mama',
+        'projects.pizza.desc': 'Site web de restaurant italien avec système de commande en ligne et menu interactif',
+        'projects.techboy.title': 'Tech Boy E-Commerce',
+        'projects.techboy.desc': 'Plateforme e-commerce complète',
+        'projects.especig.title': 'ESPECIG',
+        'projects.especig.desc': 'Système de gestion scolaire avec fonctionnalités complètes',
+        'projects.docs': 'Documentation',
         'projects.live': 'Démo en Direct',
         'projects.code': 'Code',
         'projects.download': 'Télécharger',
@@ -416,6 +492,15 @@ class LanguageManager {
         'projects.filter.web': 'Développement Web',
         'projects.filter.desktop': 'Applications de Bureau',
         'projects.filter.design': 'Design et Médias',
+        'projects.filter.photography': 'Photographie',
+        'projects.profile': 'Voir le Profil',
+        'projects.actf.title': 'Club de Football ACTF',
+        'projects.actf.desc': 'Couverture photographique régulière des joueurs, du personnel et des séances d\'entraînement pour le Club de Football Shatai Tiflet (2024 - présent).',
+        'projects.citoyens.title': 'Les Citoyens - Mouvement des Citoyens',
+        'projects.category.web': 'Web',
+        'projects.category.desktop': 'Bureau',
+        'projects.category.design': 'Design',
+        'projects.category.photography': 'Photographie',
         
         // Skills
         'skills.title': 'Compétences',
@@ -441,15 +526,31 @@ class LanguageManager {
         
         // Footer
         'footer.rights': 'Tous droits réservés.',
+        
       },
       
       de: {
         // Navigation
         'nav.about': 'Über',
+        'nav.services': 'Dienstleistungen',
         'nav.experience': 'Erfahrung',
         'nav.projects': 'Projekte',
         'nav.skills': 'Fähigkeiten',
         'nav.contact': 'Kontakt',
+        
+        // Services
+        'services.title': 'Angebotene Dienstleistungen',
+        'services.subtitle': 'Ideen mit modernster Technologie und kreativen Lösungen in digitale Realität verwandeln',
+        'services.web.title': 'Web- & Software-Entwicklung',
+        'services.web.desc': 'Erstellung moderner und responsiver Web- und Desktop-Anwendungen mit ASP.NET, C#, HTML, CSS, JavaScript und SQL Server.',
+        'services.database.title': 'Datenbankdesign',
+        'services.database.desc': 'Entwurf und Implementierung leistungsstarker Datenbanken und Informationssysteme mit SQL Server, Merise und UML.',
+        'services.desktop.title': 'Desktop-Anwendungen',
+        'services.desktop.desc': 'Entwicklung leistungsstarker Desktop-Anwendungen mit C# und .NET Framework, einschließlich der Erstellung von Berichten mit Crystal Reports.',
+        'services.design.title': 'Design, Fotografie & Social Media',
+        'services.design.desc': 'Erstellung visueller Identitäten, professionelle Fotografie und Videobearbeitung für Veranstaltungen, Marken oder Organisationen. Content-Management für soziale Medien zur Stärkung der digitalen Präsenz von Initiativen.',
+        'services.reports.title': 'Berichte & Dokumentation',
+        'services.reports.desc': 'Erstellung professioneller Berichte und technischer Dokumentation mit Crystal Reports, Word, Excel und PowerPoint.',
         
         // Hero
         'hero.greeting': 'Hallo, ich bin Oussama Elbouqi',
@@ -457,6 +558,7 @@ class LanguageManager {
         'hero.location': 'Tiflet, Marokko',
         'hero.cta1': 'Kontakt Aufnehmen',
         'hero.cta2': 'Projekte Ansehen',
+        'hero.cta3': 'Lebenslauf Herunterladen',
         
         // About
         'about.title': 'Über Mich',
@@ -468,37 +570,38 @@ class LanguageManager {
         'about.lang.german': 'Deutsch (Mittelstufe)',
         'about.lang.english': 'Englisch (Grundkenntnisse)',
         'about.lang.french': 'Französisch (Anfänger)',
-        'about.int1': 'Web-Entwicklung',
-        'about.int2': 'Fotografie & Video',
-        'about.int3': 'UI/UX Design',
-        'about.int4': 'Problemlösung',
+        'about.int1': 'Web- & Software-Entwicklung',
+        'about.int2': 'Videobearbeitung & Fotografie',
+        'about.int3': 'Visuelle Identität & Design',
+        'about.int4': 'Soziale Projekte & NGO-Engagement',
         
         // Experience
-        'exp.title': 'Erfahrung',
+        'exp.title': 'Erfahrungen',
         'exp.techboy.title': 'TECHBOY',
         'exp.techboy.role': 'Abschlussprojekt',
         'exp.techboy.location': 'Tiflet, Marokko',
-        'exp.techboy.desc1': 'Abschlussprojekt mit vollständigem Entwicklungszyklus',
-        'exp.techboy.desc2': 'E-Commerce-Webanwendung mit ASP.NET, C#, JavaScript, SQL Server erstellt',
-        'exp.techboy.desc3': 'Vollständige Lösung mit Dokumentation und Live-Demo geliefert',
+        'exp.techboy.desc': 'Im Rahmen meines Abschlussprojekts für das Diplom als Spezialisierter Techniker (DTS) in Informatikentwicklung arbeitete ich in einer Gruppe mit einem Kollegen an der Entwicklung einer E-Commerce-Website namens Tech Boy. Wir haben diese Website von A bis Z entworfen und entwickelt unter Verwendung folgender Technologien: ASP.NET, CSS, HTML, JavaScript, SQL Server und UML.',
         
         'exp.especig.title': 'ESPECIG',
         'exp.especig.role': 'Praktikum',
         'exp.especig.period': 'Mai 2024 – Jul 2024',
-        'exp.especig.desc1': 'Desktop-Anwendung für Privatschulverwaltung entwickelt',
-        'exp.especig.desc2': 'Datenbank mit MERISE-Methodik entworfen',
-        'exp.especig.desc3': 'Technologien: C#, SQL Server, Crystal Reports',
+        'exp.especig.location': 'Tiflet',
+        'exp.especig.desc': 'Im Jahr 2024 absolvierte ich ein 2-monatiges Praktikum an der Especig-Schule, wo wir mit einer Gruppe von Kollegen eine Desktop-Anwendung für die vollständige Verwaltung einer Privatschule erstellten, unter Verwendung von MERISE, C#, SQL Server.',
         
-        'exp.nibras.title': 'Fondation Nibras',
-        'exp.nibras.role': 'Praktikum',
+        'exp.webdev.title': 'Webdesign und Front-End-Entwicklung',
+        'exp.webdev.role': 'Persönliche Projekte',
+        'exp.webdev.desc': 'Eine Sammlung moderner Webanwendungen, die vielfältige Designansätze und interaktive Benutzererfahrungen präsentiert. Jedes Projekt demonstriert verschiedene Aspekte der Front-End-Entwicklung, von responsivem Design bis hin zu dynamischen Animationen und Benutzeroberflächen-Innovation.',
+        
+        'exp.nibras.title': 'Fondation Nibras pour le développement',
+        'exp.nibras.role': 'Archiv-Praktikant',
         'exp.nibras.period': 'Mai 2023 – Jun 2023',
-        'exp.nibras.desc1': 'Archivierung und Informationsorganisation verwaltet',
-        'exp.nibras.desc2': 'Datenzugänglichkeit und Dokumentation verbessert',
-        'exp.nibras.desc3': 'Organisations- und Kommunikationsfähigkeiten entwickelt',
+        'exp.nibras.location': 'Tiflet',
+        'exp.nibras.desc': 'Im Jahr 2023 absolvierte ich ein einmonatiges Praktikum bei der Fondation Nibras für Entwicklung, wo ich meine Kenntnisse in Archivierung und Informationsorganisation anwandte und meine Fähigkeiten in Bürotools entwickelte.',
+        
         
         // Projects
         'projects.title': 'Projekte',
-        'projects.subtitle': 'Entdecken Sie mein vielfältiges Portfolio von Webanwendungen, Desktop-Software und kreativen Projekten',
+        'projects.subtitle': 'Entdecken Sie mein umfassendes Portfolio mit modernsten Webanwendungen, robusten Desktop-Lösungen, kreativen Multimedia-Projekten und wirkungsvollen sozialen Initiativen. Jedes Projekt spiegelt meine Leidenschaft für Innovation, technische Exzellenz und bedeutungsvolle digitale Erfahrungen wider.',
         'projects.dashboard.title': 'Dashboard-Oberfläche',
         'projects.dashboard.desc': 'Interaktives Dashboard mit Datenvisualisierung und responsiven Diagrammen.',
         'projects.product.title': 'Produkt-Showcase',
@@ -519,6 +622,23 @@ class LanguageManager {
         'projects.branding.desc': 'Komplettes Markenidentitätspaket mit Logo-Design, Farbpalette und Marketingmaterialien.',
         'projects.video.title': 'Videoproduktion & -bearbeitung',
         'projects.video.desc': 'Professionelle Videobearbeitung, Motion Graphics und Social Media Content-Erstellung für verschiedene Kunden.',
+        'projects.personal.title': 'Persönliches Portfolio',
+        'projects.personal.desc': 'Professionelles Portfolio zur Präsentation von Entwicklungsfähigkeiten und kreativen Projekten',
+        'projects.dashboard.title': 'Dashboard-Oberfläche',
+        'projects.dashboard.desc': 'Modernes Admin-Dashboard mit Echtzeit-Analysen und Datenvisualisierung',
+        'projects.iphone.title': 'iPhone 13 Dynamisch',
+        'projects.iphone.desc': 'Produkt-Showcase-Seite mit interaktiver Farbanpassung und sanften Animationen',
+        'projects.adidas.title': 'Adidas Showcase',
+        'projects.adidas.desc': 'Sportmarken-Showcase mit Glassmorphismus-Design und dynamischen Produktanzeigen',
+        'projects.avatar.title': 'Avatar Immersiv',
+        'projects.avatar.desc': 'Immersive filmthematische Landing Page mit Parallax-Scrolling und kinoreifen Animationen',
+        'projects.pizza.title': 'Pizza Mama',
+        'projects.pizza.desc': 'Italienische Restaurant-Website mit Online-Bestellsystem und interaktivem Menü',
+        'projects.techboy.title': 'Tech Boy E-Commerce',
+        'projects.techboy.desc': 'Vollständige E-Commerce-Plattform',
+        'projects.especig.title': 'ESPECIG',
+        'projects.especig.desc': 'Schulverwaltungssystem mit umfassenden Funktionen',
+        'projects.docs': 'Dokumentation',
         'projects.live': 'Live-Demo',
         'projects.code': 'Code',
         'projects.download': 'Herunterladen',
@@ -530,6 +650,15 @@ class LanguageManager {
         'projects.filter.web': 'Web-Entwicklung',
         'projects.filter.desktop': 'Desktop-Anwendungen',
         'projects.filter.design': 'Design & Medien',
+        'projects.filter.photography': 'Fotografie',
+        'projects.profile': 'Profil Ansehen',
+        'projects.actf.title': 'ACTF Fußballverein',
+        'projects.actf.desc': 'Regelmäßige fotografische Berichterstattung über Spieler, Personal und Trainingseinheiten für den Shatai Tiflet Fußballverein (2024 - heute).',
+        'projects.citoyens.title': 'Die Bürgerbewegung',
+        'projects.category.web': 'Web',
+        'projects.category.desktop': 'Desktop',
+        'projects.category.design': 'Design',
+        'projects.category.photography': 'Fotografie',
         
         // Skills
         'skills.title': 'Fähigkeiten',
@@ -555,6 +684,7 @@ class LanguageManager {
         
         // Footer
         'footer.rights': 'Alle Rechte vorbehalten.',
+        
       }
     };
     
@@ -647,9 +777,3 @@ class LanguageManager {
     });
   }
 }
-
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', () => {
-  window.themeManager = new ThemeManager();
-  window.languageManager = new LanguageManager();
-});

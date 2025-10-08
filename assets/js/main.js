@@ -1,47 +1,49 @@
 // ========================================
-// Mobile menu toggle with animation
+// Initialize when DOM is ready
 // ========================================
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    if (isHidden) {
-      mobileMenu.classList.remove('hidden');
-      setTimeout(() => mobileMenu.style.opacity = '1', 10);
-    } else {
-      mobileMenu.style.opacity = '0';
-      setTimeout(() => mobileMenu.classList.add('hidden'), 200);
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile menu toggle with animation
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => mobileMenu.style.opacity = '1', 10);
+      } else {
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => mobileMenu.classList.add('hidden'), 200);
+      }
+    });
+  }
+
+  // ========================================
+  // Smooth scroll with offset
+  // ========================================
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(l => {
+    l.addEventListener('click', e => {
+      const href = l.getAttribute('href');
+      if (href === '#') return; // Skip empty anchors
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        mobileMenu?.classList.add('hidden');
+      }
+    })
   });
-}
 
-// ========================================
-// Smooth scroll with offset
-// ========================================
-const links = document.querySelectorAll('a[href^="#"]');
-links.forEach(l => {
-  l.addEventListener('click', e => {
-    const href = l.getAttribute('href');
-    if (href === '#') return; // Skip empty anchors
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      const offset = 80;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-      mobileMenu?.classList.add('hidden');
-    }
-  })
-});
-
-// ========================================
-// Active nav highlighting on scroll
-// ========================================
-const sections = ['home','about','projects','experience','skills','contact']
-  .map(id => document.getElementById(id))
-  .filter(Boolean);
-const navLinks = [...document.querySelectorAll('.nav-link')];
+  // ========================================
+  // Active nav highlighting on scroll
+  // ========================================
+  const sections = ['home','about','projects','experience','skills','contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const navLinks = [...document.querySelectorAll('.nav-link')];
 
 let ticking = false;
 function updateActiveNav() {
@@ -324,3 +326,5 @@ function debounce(func, wait) {
 
 // Apply debounce to non-critical scroll handlers if needed
 // Example: window.addEventListener('scroll', debounce(someFunction, 100));
+
+}); // End of DOMContentLoaded
