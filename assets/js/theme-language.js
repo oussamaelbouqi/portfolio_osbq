@@ -60,19 +60,17 @@ class LanguageManager {
         // Navigation
         'nav.about': 'About',
         'nav.services': 'Services',
-        'nav.experience': 'Experience',
         'nav.projects': 'Projects',
         'nav.skills': 'Skills',
         'nav.contact': 'Contact',
         
         // Hero
         'hero.greeting': "Hi, I'm Oussama Elbouqi",
-        'hero.title': 'Développeur Informatique',
+        'hero.title': 'Computer Developer',
         'hero.location': 'Tiflet, Morocco',
         'hero.cta1': 'Get In Touch',
         'hero.cta2': 'View Projects',
         'hero.cta3': 'Download CV',
-        
         // About
         'about.title': 'About Me',
         'about.p1': "As a computer developer, I leverage my skills in various technical projects, creating software solutions tailored to my clients' needs. Active in social initiatives with non-governmental organizations, I strive to contribute to projects that have a tangible impact.",
@@ -165,6 +163,8 @@ class LanguageManager {
         'projects.techboy.desc': 'Full-stack e-commerce platform',
         'projects.especig.title': 'ESPECIG',
         'projects.especig.desc': 'School management system with comprehensive features',
+        'projects.crud.title': 'Full Product Management System (CRUD)',
+        'projects.crud.desc': 'Complete product management system with CRUD operations (Create, Read, Update, Delete) developed entirely in JavaScript for easy product management.',
         'projects.live': 'Live Demo',
         'projects.code': 'Code',
         'projects.download': 'Download',
@@ -185,6 +185,12 @@ class LanguageManager {
         'projects.category.desktop': 'Desktop',
         'projects.category.design': 'Design',
         'projects.category.photography': 'Photography',
+        'projects.gallery': 'View Projects',
+        'projects.media': 'View Projects',
+        'projects.videos': 'View Projects',
+        'projects.designs': 'View Projects',
+        'projects.reels': 'View Projects',
+        'projects.content': 'View Projects',
         
         // Skills
         'skills.title': 'Skills',
@@ -343,6 +349,12 @@ class LanguageManager {
         'projects.category.desktop': 'سطح المكتب',
         'projects.category.design': 'تصميم',
         'projects.category.photography': 'تصوير',
+        'projects.gallery': 'عرض المشاريع',
+        'projects.media': 'عرض المشاريع',
+        'projects.videos': 'عرض المشاريع',
+        'projects.designs': 'عرض المشاريع',
+        'projects.reels': 'عرض المشاريع',
+        'projects.content': 'عرض المشاريع',
         
         // Skills
         'skills.title': 'المهارات',
@@ -501,6 +513,12 @@ class LanguageManager {
         'projects.category.desktop': 'Bureau',
         'projects.category.design': 'Design',
         'projects.category.photography': 'Photographie',
+        'projects.gallery': 'Voir Projets',
+        'projects.media': 'Voir Projets',
+        'projects.videos': 'Voir Projets',
+        'projects.designs': 'Voir Projets',
+        'projects.reels': 'Voir Projets',
+        'projects.content': 'Voir Projets',
         
         // Skills
         'skills.title': 'Compétences',
@@ -659,6 +677,12 @@ class LanguageManager {
         'projects.category.desktop': 'Desktop',
         'projects.category.design': 'Design',
         'projects.category.photography': 'Fotografie',
+        'projects.gallery': 'Projekte Ansehen',
+        'projects.media': 'Projekte Ansehen',
+        'projects.videos': 'Projekte Ansehen',
+        'projects.designs': 'Projekte Ansehen',
+        'projects.reels': 'Projekte Ansehen',
+        'projects.content': 'Projekte Ansehen',
         
         // Skills
         'skills.title': 'Fähigkeiten',

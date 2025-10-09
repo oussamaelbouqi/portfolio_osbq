@@ -851,10 +851,14 @@ button, a, .interactive {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .exp-meta::before {
   content: '📍';
   font-size: 12px;
+  flex-shrink: 0;
 }
 .exp-list { 
   margin-top: 0.75rem;
@@ -869,6 +873,48 @@ button, a, .interactive {
 }
 .exp-list li:hover {
   color: #2563eb;
+}
+
+/* Location consistency for experience cards */
+.exp-location {
+  font-size: 0.875rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.exp-location svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+/* Responsive location display */
+@media (max-width: 640px) {
+  .exp-location {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .exp-location {
+    font-size: 0.875rem;
+  }
+}
+
+/* RTL support for location */
+[dir="rtl"] .exp-location {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .exp-location svg {
+  margin-left: 0.5rem;
+  margin-right: 0;
 }
 
 /* Badge component */
@@ -1104,5 +1150,197 @@ textarea:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   Responsive Project Buttons
+   ======================================== */
+
+/* Base styles for project buttons */
+.project-item .flex.gap-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.project-item .group\/btn {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mobile devices (320px - 480px) */
+@media (max-width: 480px) {
+  .project-item .flex.gap-4 {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  
+  .project-item .group\/btn {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    padding: 0.875rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .project-item .group\/btn span {
+    font-size: 0.8rem;
+  }
+  
+  .project-item .group\/btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* Small mobile devices (481px - 576px) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .project-item .flex.gap-4 {
+    gap: 0.5rem;
+  }
+  
+  .project-item .group\/btn {
+    flex: 1;
+    min-width: 120px;
+    max-width: 160px;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets (577px - 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .project-item .flex.gap-4 {
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  
+  .project-item .group\/btn {
+    flex: 0 1 auto;
+    min-width: 130px;
+    max-width: 180px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Large tablets and small desktops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-item .flex.gap-4 {
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .project-item .group\/btn {
+    flex: 0 1 auto;
+    min-width: 140px;
+    max-width: 190px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .project-item .flex.gap-4 {
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .project-item .group\/btn {
+    flex: 0 1 auto;
+    min-width: 150px;
+    max-width: 200px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* RTL (Arabic) specific adjustments */
+[dir="rtl"] .project-item .flex.gap-4 {
+  justify-content: flex-end;
+}
+
+@media (max-width: 480px) {
+  [dir="rtl"] .project-item .flex.gap-4 {
+    justify-content: stretch;
+  }
+}
+
+[dir="rtl"] .project-item .group\/btn {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .project-item .group\/btn svg {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .project-item .group\/btn {
+    min-height: 48px;
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .project-item .group\/btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .project-item .group\/btn svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 900px) {
+  .project-item .flex.gap-4 {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .project-item .group\/btn {
+    flex: 1;
+    min-width: 100px;
+    max-width: 140px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .project-item .group\/btn span {
+    font-size: 0.75rem;
+  }
+  
+  .project-item .group\/btn svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+/* Ultra-wide screens (1400px+) */
+@media (min-width: 1400px) {
+  .project-item .group\/btn {
+    min-width: 160px;
+    max-width: 220px;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
