@@ -96,6 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+  // Navigation scroll effect
+  const nav = document.querySelector('nav');
+  const updateNavOnScroll = () => {
+    if (window.scrollY > 50) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  };
+  
   // Simple scroll progress
   const updateScrollProgress = () => {
     const scrollProgress = document.getElementById('scroll-progress');
@@ -106,7 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   
-  window.addEventListener('scroll', updateScrollProgress);
+  window.addEventListener('scroll', () => {
+    updateScrollProgress();
+    updateNavOnScroll();
+  });
   
   console.log('All functionality initialized successfully!');
 });
